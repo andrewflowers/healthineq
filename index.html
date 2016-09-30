@@ -15,18 +15,43 @@
   stroke-linejoin: round;
 }
 
+#tooltip{
+  position: absolute;
+  z-index: 2;
+  background: white; /* gba(0,153,76,0.8); */
+  width:130px;
+  height:60px;
+  color:black;
+  font-size: 14px;
+  padding:5px;
+  top:-150px;
+  left:-150px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#tooltip svg {
+	border-top: 0;
+	margin-left: -5px;
+	margin-top: 7px;
+}
+
+#tooltip.hidden {
+	display: none;
+}
+
 </style>
 <body>
+ <div id="tooltip" class="hidden"></div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="https://d3js.org/d3-queue.v2.min.js"></script>
 <script>
 
-var width = 960,
-    height = 500;
+var width = 1500, // 960
+    height = 800; // 500
 
 var projection = d3.geo.albersUsa()
-    .scale([1000])
+    .scale([1500])
     .translate([width / 2, height / 2]);
 
 var path = d3.geo.path().
@@ -40,6 +65,20 @@ var svg = d3.select("body")
 var color = d3.scale.quantize()
 	.range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"])
 	.domain([77,87]);
+
+
+var hover = function(d) {
+    console.log('d', d, 'event', event);
+    d3.select("#tooltip").classed("hidden", false);
+
+    var div = document.getElementById('tooltip');
+    div.style.left = event.pageX +'px';
+    div.style.top = event.pageY + 'px';
+    div.innerHTML = 'In the ' + 
+    				d.properties.czname +
+    				' area, life expectancy is ' +
+    				Math.round(parseFloat(d.properties.le_raceadj_q1_F)*10)/10 + '.';
+  };
 
 d3.json("topojson_merge/cz_and_states_data.json", function(error, data) {
   
@@ -61,7 +100,9 @@ d3.json("topojson_merge/cz_and_states_data.json", function(error, data) {
       			} else {
       				return "#e1dada";
       			}
-       });
+       })
+      .on("mouseover", hover)
+      .on("mouseout", function() { d3.select("#tooltip").classed("hidden", true);});
 
   svg.append("path")
       .data([states])
