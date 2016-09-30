@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: #ccc;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.albersUsa()
+    .scale([1000])
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path().
+	projection(projection);
+
+var svg = d3.select("body")
+	.append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("topojson_merge/commuterZones.json", function(error, cz) {
+  
+  if (error) return console.error(error);
+  console.log(cz);
+
+  var zones = topojson.feature(cz, cz.objects.zones);
+
+  svg.append("path")
+      .data([zones])
+      .attr("d", path);
+     
+});
+
+</script>
