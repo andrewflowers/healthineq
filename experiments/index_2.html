@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.cz {
+  fill: none;
+  stroke: #777;
+  stroke-width: .5px;
+}
+
+.state {
+  fill: none;
+  stroke: #777;
+  stroke-width: .8px;
+  stroke-linejoin: round;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="//d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/d3-queue.v2.min.js"></script>
+<script>
+
+var width = 960,
+    height = 500;
+
+var projection = d3.geo.albersUsa()
+    .scale([1000])
+    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path().
+	projection(projection);
+
+var svg = d3.select("body")
+	.append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var color = d3.scale.quantize()
+	.range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
+
+d3.csv("../data/health_ineq_data/health_ineq_online_table_6.csv", function(data){
+
+  color.domain([
+          d3.min(data, function(d) { return d.le_raceadj_q1_F; }), 
+          d3.max(data, function(d) { return d.le_raceadj_q1_F; })
+        ]);
+
+  d3.json("topojson_merge/cz_and_states.json", function(json) {
+
+    var commuting_zones = topojson.feature(json, json.objects.commuting_zones),
+        states = topojson.feature(json, json.objects.states);
+
+    for (var i = 0; i < data.length; i++) {
+
+      //Grab commuting zone code
+      var dataCZ = data[i].cz;
+      
+      //Grab le_raceadj_q1_F value, and convert from string to float
+      var dataValue = parseFloat(data[i].vale_raceadj_q1_Flue);
+
+      //Find the corresponding commuting zone inside the GeoJSON
+      for (var j = 0; j < commuting_zones.features.length; j++) {
+      
+        var jsonCZ = commuting_zones.features[j].properties.zone;
+
+        if (dataCZ == jsonCZ) {
+      
+          //Copy the data value into the JSON
+          commuting_zones.features[j].properties.value = dataValue;
+          
+          //Stop looking through the JSON
+          break;
+          
+        }
+      }   
+    }
+
+
+    svg.append("path")
+        .data([commuting_zones])
+        .attr("d", path)
+        .attr("class", "cz")
+        .style("fill", function(d) {
+                //Get data value
+                var value = d.properties.value;
+                
+                if (value) {
+                  //If value exists…
+                  return color(value);
+                } else {
+                  //If value is undefined…
+                  return "#ccc";
+                }
+             });
+
+
+    svg.append("path")
+        .data([states])
+        .attr("d", path)
+        .attr("class", "state");
+       
+  });
+};
+
+</script>

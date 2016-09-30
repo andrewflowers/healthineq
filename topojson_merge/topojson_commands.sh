@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Step 1: Label each county with its commuting zone
 topojson \
   -o counties.json \
@@ -19,3 +21,11 @@ topojson \
   -o cz_and_states.json \
   -p \
   -- states=cb_2014_us_state_5m.shp commuting_zones.json 
+
+# *OPTIONAL* Step 4: add health inequality data to commuting zones
+topojson \
+  -o cz_and_states_data.json \
+  -e ../data/health_ineq_data/health_ineq_online_table_6.csv \
+  --id-property=+zone,+cz \
+  -p \
+  -- cz_and_states.json

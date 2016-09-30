@@ -45,23 +45,17 @@ d3.json("topojson_merge/cz_and_states_data.json", function(error, data) {
   
   if (error) return console.error(error);
 
-  var commuting_zones = topojson.feature(data, data.objects.commuting_zones).features,
+  var commuting_zones = topojson.feature(data, data.objects.commuting_zones),
   	  states = topojson.feature(data, data.objects.states);
 
-  svg.selectAll("path")
-      .data(commuting_zones)
-      .enter()
-      .append("path")
-      .attr("d", path)
-      .attr("fill", function(d) { 
-      			var value = d.properties.le_raceadj_q1_F;
+  console.log(commuting_zones);
 
-      			if (value) {
-      				return color(value);
-      			} else {
-      				return "#e1dada";
-      			}
-       });
+  svg.append("path")
+      .data([commuting_zones])
+      .attr("d", path)
+      .attr("class", "cz");
+
+  /*svg.attr("fill", function(d) { return color(d.features[7].properties.le_raceadj_q1_F);});*/
 
   svg.append("path")
       .data([states])
