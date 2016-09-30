@@ -3,14 +3,14 @@
 <style>
 
 .cz {
-  fill: none;
-  stroke: #777;
+  stroke: white;
   stroke-width: .5px;
+  stroke-linejoin: round;
 }
 
 .state {
   fill: none;
-  stroke: #777;
+  stroke: white;
   stroke-width: .8px;
   stroke-linejoin: round;
 }
@@ -22,7 +22,7 @@
   width:130px;
   height:60px;
   color:black;
-  font-size: 14px;
+  font-size: 15px;
   padding:5px;
   top:-150px;
   left:-150px;
@@ -41,7 +41,7 @@
 
 </style>
 <body>
- <div id="tooltip" class="hidden"></div>
+<div id="tooltip" class="hidden"></div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
 <script src="https://d3js.org/d3-queue.v2.min.js"></script>
@@ -63,8 +63,8 @@ var svg = d3.select("body")
     .attr("height", height);
 
 var color = d3.scale.quantize()
-	.range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"])
-	.domain([77,87]);
+	.range(["#a50026","#d73027","#f46d43","#fdae61","#fee08b","#ffffbf","#d9ef8b","#a6d96a","#66bd63","#1a9850","#006837"])
+	.domain([77.85, 86.31]);
 
 
 var hover = function(d) {
@@ -74,10 +74,19 @@ var hover = function(d) {
     var div = document.getElementById('tooltip');
     div.style.left = event.pageX +'px';
     div.style.top = event.pageY + 'px';
-    div.innerHTML = 'In the ' + 
+    if (d.properties.czname) {
+    	div.innerHTML = 'In the ' + 
     				d.properties.czname +
     				' area, life expectancy is ' +
     				Math.round(parseFloat(d.properties.le_raceadj_q1_F)*10)/10 + '.';
+    			} else {
+    				div.innerHTML = 'No data';
+    			}
+    
+
+
+    d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+        .style({'stroke-width':'1.3px','stroke':'black'});
   };
 
 d3.json("topojson_merge/cz_and_states_data.json", function(error, data) {
@@ -98,11 +107,16 @@ d3.json("topojson_merge/cz_and_states_data.json", function(error, data) {
       			if (value) {
       				return color(value);
       			} else {
-      				return "#e1dada";
+      				return "#f2ebeb";
       			}
        })
+      .attr("class", "cz")
       .on("mouseover", hover)
-      .on("mouseout", function() { d3.select("#tooltip").classed("hidden", true);});
+      .on("mouseout", function() { 
+      	d3.select("#tooltip").classed("hidden", true);
+      	d3.select(this).transition().duration(300)
+        .style({'stroke-width':'.5px','stroke':'white'})
+      });
 
   svg.append("path")
       .data([states])
