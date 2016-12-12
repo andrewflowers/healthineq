@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health measures of similar areas</title>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://rawgit.com/gka/d3-jetpack/master/d3-jetpack.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="selectize.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <style type="text/css">
+    body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
+    th { text-align: left; }
+    th, td { padding: 0 1em 0.5ex 0;}
+    th.center, td.center { text-align: center; }
+    th.num, td.num { text-align: right; }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+            <h1>Health metrics by similar locations</h1>
+            <div class="demo">
+                <p>Enter your city and state to see similar areas and their health metrics:</p>
+                <div class="control-group">
+                    <label for="select-state">State:</label>
+                    <select id="select-state" class="contacts" placeholder="Enter state..."></select>
+                </div>
+                <script>
+                
+                var state_selection;
+
+                function state_change(value) {
+                    state_selection = value;
+                    console.log(state_selection);
+                }
+
+                function get_state() {
+                    return state_selection;
+                }
+
+                d3.csv("cz_names_and_states.csv", function(names) {
+
+                    $('#select-state').selectize({
+                        create: false,
+                        persist: false,
+                        maxItems: 1,
+                        maxOptions: null,
+                        highlight: true,
+                        sortField: {field: 'state'},
+                        closeAfterSelect: true,
+                        dropdownParent: 'body',
+                        valueField: 'state',
+                        labelField: 'state',
+                        searchField: ['state'],
+                        options: names,
+                        onChange: function(value) {
+                               state_change(value);
+                          }
+                    });
+            });
+
+                </script>
+                <div class="control-group">
+                    <label for="select-city">City:</label>
+                    <select id="select-city" class="contacts" placeholder="Enter city..."></select>
+                </div>
+                <script>
+
+                d3.csv("cz_names_and_states.csv", function(names) {
+
+                    $('#select-city').selectize({
+                        create: false,
+                        persist: false,
+                        maxItems: 1,
+                        maxOptions: null,
+                        highlight: true,
+                        sortField: {field: 'city'},
+                        closeAfterSelect: true,
+                        valueField: 'city',
+                        labelField: 'city',
+                        searchField: ['city'],
+                        options: names //.filter(function(d) { return d.state == get_state(); })
+                    });
+                });
+
+
+                </script>
+            </div>
+        </div>
+
+    <div class="separator">&nbsp;</div>
+
+    <script>
+    // Create table
+    var health_data;
+
+    d3.csv("sample_table_data.csv", function(data) {
+        
+        health_data = data;
+    
+        // column definitions
+        var columns = [
+            { head: 'Location', cl: 'title', html: ƒ('location') },
+            { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1') },
+            { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1') },
+            { head: 'Exercise', cl: 'num', html: ƒ('exercise_any_q1') },
+            { head: 'Poverty', cl: 'num', html: ƒ('poor_share') }
+        ];
+
+        
+        d3.select("body").append("div")
+          .attr("id", "container")
+
+        d3.select("#container").append("div")
+          .attr("id", "FilterableTable");
+
+        var table = d3.select("#FilterableTable").append("table"); 
+
+        table.append('thead').append('tr')
+            .selectAll('th')
+            .data(columns).enter()
+            .append('th')
+            .attr('class', ƒ('cl'))
+            .text(ƒ('head'));
+
+        // create table body
+        table.append('tbody')
+            .selectAll('tr')
+            .data(health_data).enter()
+            .append('tr')
+            .selectAll('td')
+            .data(function(row, i) {
+                return columns.map(function(c) {
+                    // compute cell values for this specific row
+                    var cell = {};
+                    d3.keys(c).forEach(function(k) {
+                        cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
+                    });
+                    return cell;
+                });
+            }).enter()
+            .append('td')
+            .html(ƒ('html'))
+            .attr('class', ƒ('cl'));
+
+        d3.select("#search")
+            .on("keyup", function() { 
+            var text = this.value.trim();
+            console.log(text);
+        });
+
+    });
+
+
+
+    </script>
+</body>
+</html>

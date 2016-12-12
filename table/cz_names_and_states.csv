@@ -1,0 +1,742 @@
+city,state
+Johnson City,TN
+Morristown,TN
+Middlesborough,TN
+Knoxville,TN
+Winston-Salem,NC
+Martinsville,VA
+Greensboro,NC
+North Wilkesboro,NC
+Galax,VA
+Spartanburg,SC
+Gastonia,NC
+Charlotte,NC
+Boone,NC
+Morganton,NC
+Hickory,NC
+Franklin,NC
+Sylva,NC
+Asheville,NC
+Andrews,NC
+Bennettsville,SC
+Florence,SC
+Fayetteville,NC
+Wilmington,NC
+Rocky Mount,NC
+Raleigh,NC
+Henderson,NC
+Goldsboro,NC
+Jacksonville,NC
+Virginia Beach,VA
+Washington,NC
+South Boston,VA
+Lynchburg,VA
+Richmond,VA
+Newport News,VA
+Roanoke Rapids,NC
+Gulfport,MS
+Laurel,MS
+Hattiesburg,MS
+Kosciusko,MS
+Yazoo City,MS
+Jackson,MS
+McComb,MS
+Brookhaven,MS
+Jena,LA
+Natchez,MS
+Vicksburg,MS
+New Orleans,LA
+Houma,LA
+Baton Rouge,LA
+Alexandria,LA
+Lake Charles,LA
+Lafayette,LA
+Monroe,LA
+Lake Providence,LA
+Magnolia,AR
+Shreveport,LA
+Ruston,LA
+Many,LA
+Crossett,AR
+Pine Bluff,AR
+El Dorado,AR
+Little Rock,AR
+Stuttgart,AR
+Searcy,AR
+Corbin,KY
+Richmond,KY
+West Liberty,KY
+Hazard,KY
+Campbellsville,KY
+Somerset,KY
+Greenwood,MS
+Clarksdale,MS
+Greenville,MS
+Jackson,TN
+Dyersburg,TN
+Lexington,TN
+Tupelo,MS
+Corinth,MS
+New Albany,MS
+Memphis,TN
+West Memphis,AR
+Bowling Green,KY
+Glasgow,KY
+Columbia,TN
+Nashville,TN
+Tullahoma,TN
+Dickson,TN
+Clarksville,TN
+Huntsville,AL
+Gadsden,AL
+Florence,AL
+McMinnville,TN
+Cookeville,TN
+Chattanooga,TN
+Crossville,TN
+Ellijay,GA
+Cleveland,TN
+Rome,GA
+Tampa,FL
+Lakeland,FL
+Sarasota,FL
+Miami,FL
+Port St. Lucie,FL
+Cape Coral,FL
+Palm Bay,FL
+Orlando,FL
+Deltona,FL
+Jacksonville,FL
+Lake City,FL
+Ocala,FL
+Gainesville,FL
+Sumter,SC
+Columbia,SC
+Barnwell,SC
+Charleston,SC
+Greenville,SC
+Augusta,GA
+Washington,GA
+Fitzgerald,GA
+Cordele,GA
+Valdosta,GA
+Waycross,GA
+Brunswick,GA
+Hinesville,GA
+Statesboro,GA
+Savannah,GA
+Macon,GA
+Vidalia,GA
+Milledgeville,GA
+Dublin,GA
+Atlanta,GA
+Griffin,GA
+Athens,GA
+Toccoa,GA
+Gainesville,GA
+Talladega,AL
+LaGrange,GA
+Columbus,GA
+Americus,GA
+Auburn,AL
+Tallahassee,FL
+Panama City,FL
+Bainbridge,GA
+Thomasville,GA
+Albany,GA
+Eufaula,GA
+Dothan,AL
+Meridian,MS
+Columbus,MS
+Starkville,MS
+Jasper,AL
+Birmingham,AL
+Tuscaloosa,AL
+Demopolis,AL
+Pensacola,FL
+Mobile,AL
+Atmore,AL
+Montgomery,AL
+Troy,AL
+Bluefield,VA
+Welch,WV
+Big Stone Gap,VA
+Fredericksburg,VA
+Baltimore,MD
+Colonial Beach,VA
+Washington DC,DC
+Marquette,MI
+Marinette,MI
+Sault Ste. Marie,MI
+Jackson,MI
+Detroit,MI
+Lansing,MI
+Mount Pleasant,MI
+Saginaw,MI
+Big Rapids,MI
+Ludington,MI
+Kalamazoo,MI
+Grand Rapids,MI
+Traverse City,MI
+Petoskey,MI
+Alpena,MI
+Grayling,MI
+Dayton,OH
+Washington Court House,OH
+Wayne,IN
+Cincinnati,OH
+Maysville,KY
+Washington,IN
+Lexington,KY
+Mount Sterling,KY
+Danville,KY
+Elizabethtown,KY
+Louisville,KY
+Madison,IN
+Bardstown,KY
+Owensboro,KY
+Findlay,OH
+Lima,OH
+Toledo,OH
+Defiance,OH
+South Bend,IN
+Concord,IN
+Wayne,IN
+Center,IN
+Muncie,IN
+Fort Wayne,IN
+Indianapolis,IN
+Columbus,IN
+Terre Haute,IN
+Lafayette,IN
+Bloomington,IN
+Evansville,IN
+Olney,IL
+Vincennes,IN
+Gary,IN
+Canton,OH
+Lorain,OH
+Cleveland,OH
+Parkersburg,WV
+Zanesville,OH
+Weirton,OH
+Wheeling,WV
+Scioto,OH
+Athens,OH
+Columbus,OH
+Mansfield,OH
+State College,PA
+Altoona,PA
+Pittsburgh,PA
+Youngstown,OH
+Erie,PA
+Roanoke,VA
+Elkins,WV
+Morgantown,WV
+Buckhannon,WV
+Beckley,WV
+Summersville,WV
+Charleston,WV
+Spencer,WV
+Pikeville,KY
+Huntington,KY
+Harrisonburg,VA
+Staunton,VA
+Hagerstown,PA
+Cumberland,MD
+Winchester,VA
+Charlottesville,VA
+Syracuse,NY
+Oneonta,NY
+Union,NY
+Buffalo,NY
+Elmira,NY
+Olean,NY
+St. Marys,PA
+Watertown,NY
+Plattsburgh,NY
+Amsterdam,NY
+Albany,NY
+Sunbury,PA
+Scranton,PA
+Williamsport,PA
+Allentown,PA
+Reading,PA
+Harrisburg,PA
+Poughkeepsie,NY
+New York City,NY
+Toms River,NJ
+Newark,NJ
+Philadelphia,PA
+Wilmington,DE
+Dover,DE
+Easton,MD
+Chincoteague,VA
+Bangor,ME
+Calais,ME
+Presque Isle,ME
+Portland,ME
+Burlington,VT
+Berlin,VT
+Claremont,VT
+Providence,RI
+Nantucket,MA
+Oak Bluffs,MA
+Boston,MA
+Manchester,NH
+Keene,NH
+Springfield,MA
+Bridgeport,CT
+Pittsfield,MA
+Ashland,WI
+Houghton,MI
+Ironwood,MI
+Rhinelander,WI
+Rice Lake,WI
+Amery,WI
+Hutchinson,MN
+Redwood Falls,MN
+Mankato,MN
+Owatonna,MN
+St. Cloud,MN
+Minneapolis,MN
+Pine City,MN
+Brainerd,MN
+Rochester,MN
+Austin,MN
+Mason City,IA
+Decorah,IA
+Marshalltown,IA
+Waterloo,IA
+Iowa Falls,IA
+Iowa City,IA
+Cedar Rapids,IA
+Ottumwa,IA
+Sheboygan,WI
+Appleton,WI
+Green Bay,WI
+Shawano,WI
+Wausau,WI
+Eau Claire,WI
+La Crosse,WI
+Monroe,WI
+Madison,WI
+Dubuque,IA
+Charleston,IL
+Douglas,IL
+Bloomington,IL
+Decatur,IL
+Burlington,IA
+Galesburg,IL
+Davenport,IL
+Clinton,IA
+Peoria,IL
+Kenosha,WI
+Milwaukee,WI
+Bourbonnais,IL
+Chicago,IL
+Rockford,IL
+Rolla,MO
+Farmington,MO
+St. Louis,MO
+Mexico,MO
+Jacksonville,IL
+Springfield,IL
+Edwardsville,IL
+Quincy,IL
+Mountain Home,AR
+West Plains,MO
+Harrison,AR
+Heber Springs,AR
+Batesville,AR
+Henderson,KY
+Union City,TN
+Paducah,KY
+Murray,KY
+Centralia,IL
+Carbondale,IL
+Harrisburg,IL
+Cape Girardeau,MO
+Poplar Bluff,MO
+Blytheville,AR
+Jonesboro,AR
+Roseau,MN
+Duluth,MN
+West Cook,MN
+International Falls,MN
+Moberly,MO
+Marshall,MO
+Brookfield,MO
+Trenton,MO
+Polk,MO
+Centerville,IA
+Kirksville,MO
+Bismarck,ND
+East Grant,ND
+Linton,ND
+Steele,ND
+Devils Lake,ND
+Carrington,ND
+Turtle Mountain,ND
+Minot,ND
+Rugby,ND
+Ekalaka,SD
+Baker,MT
+Bowman,ND
+Lemmon,ND
+Scobey,MT
+Wolf Point,MT
+Plentywood,MT
+Glasgow,MT
+Glendive,MT
+Dickinson,ND
+Sidney,ND
+Williston,ND
+Brookings,SD
+Madison,SD
+Sioux Falls,SD
+Watertown,SD
+Milbank,MN
+Sisseton,SD
+East Corson,SD
+Mobridge,SD
+Aberdeen,SD
+Bemidji,MN
+Grafton,ND
+Thief River Falls,MN
+Grand Forks,ND
+Fargo,ND
+Lisbon,ND
+Jamestown,ND
+Cooperstown,ND
+Fergus Falls,MN
+Little Falls,MN
+O'Neill,NE
+Ord,NE
+Ainsworth,NE
+Winner,SD
+Yankton,SD
+Mitchell,SD
+Huron,SD
+Parkston,SD
+Chamberlain,SD
+Miller,SD
+Pierre,SD
+Gettysburg,SD
+Willmar,MN
+Marshall,MN
+Sioux Center,IA
+Worthington,MN
+Spencer,IA
+Fairmont,MN
+Storm Lake,IA
+Fort Dodge,IA
+Des Moines,IA
+Creston,IA
+Atlantic,IA
+Carroll,IA
+Rapid City,SD
+Eagle Butte,SD
+Southwest Jackson,SD
+Murdo,SD
+Mission,SD
+Scottsbluff,NE
+Cheyenne,WY
+Torrington,WY
+Gordon,SD
+Norfolk,NE
+Columbus,NE
+Hastings,NE
+York,NE
+Grand Island,NE
+Sioux City,IA
+West Point,NE
+Lincoln,NE
+Nebraska City,NE
+Red Oak,IA
+Omaha,NE
+Sterling,CO
+Ogallala,NE
+Oshkosh,NE
+Valentine,NE
+Broken Bow,NE
+North Platte,NE
+Colorado Springs,CO
+Limon,CO
+Springfield,CO
+Pueblo,CO
+Trinidad,CO
+Burlington,CO
+Oberlin,KS
+Norton,KS
+Phillipsburg,KS
+Colby,KS
+Goodland,KS
+Wano,KS
+McCook,NE
+Kearney,NE
+Lexington,NE
+Salida,CO
+Glenwood Springs,CO
+Granby,CO
+Laramie,WY
+Fort Collins,CO
+Denver,CO
+Pratt,KS
+Coldwater,KS
+Dodge City,KS
+Great Bend,KS
+Hutchinson,KS
+Hays,KS
+Township 11,KS
+Center,KS
+Concordia,KS
+Superior,NE
+Beloit,KS
+Salina,KS
+Hiawatha,KS
+Marysville,KS
+Manhattan,KS
+Topeka,KS
+Wichita,KS
+Newton,KS
+Winfield,KS
+Ottawa,KS
+Emporia,KS
+Bartlesville,KS
+Leavenworth,KS
+Kansas City,MO
+St. Joseph,MO
+Sedalia,MO
+Polk,MO
+Bethany,MO
+Columbia,MO
+Eldon,MO
+Springfield,MO
+Monett,MO
+Joplin,MO
+Center,MO
+Russellville,AR
+Fort Smith,AR
+Muskogee,OK
+Fayetteville,AR
+Stillwater,OK
+Tulsa,OK
+Okmulgee,OK
+Woodward,OK
+Enid,OK
+El Paso,TX
+Alamogordo,NM
+Truth or Consequences,NM
+Deming,NM
+Van Horn,TX
+Roswell,NM
+Santa Rosa,NM
+Hobbs,NM
+Lubbock,TX
+Clovis,NM
+Littlefield,TX
+Amarillo,TX
+Pampa,TX
+Wellington,TX
+Memphis,TX
+Matador,TX
+Plainview,TX
+Garden City,KS
+Ulysses,KS
+Scott City,KS
+Liberal,KS
+Perryton,TX
+Guymon,OK
+Dumas,TX
+Victoria,TX
+La Grange,TX
+Gonzales,TX
+Austin,TX
+Burnet,TX
+San Antonio,TX
+Beeville,TX
+Kerrville,TX
+Mason,TX
+Midland,TX
+Pecos,TX
+Fort Stockton,TX
+Alpine,TX
+Crystal City,TX
+Pearsall,TX
+Laredo,TX
+Brownsville,TX
+Corpus Christi,TX
+College Station,TX
+Pearland,TX
+Houston,TX
+Beaumont,TX
+Huntsville,TX
+Nacogdoches,TX
+San Angelo,TX
+Brady,TX
+Junction,TX
+Uvalde,TX
+Del Rio,TX
+Eagle Pass,TX
+Big Spring,TX
+Sweetwater,TX
+Snyder,TX
+Abilene,TX
+Childress,TX
+Haskell,TX
+Wichita Falls,TX
+Graham,TX
+Seymour,TX
+Vernon,TX
+Brownwood,TX
+Stephenville,TX
+Waco,TX
+Corsicana,TX
+Killeen,TX
+Fort Worth,TX
+Dallas,TX
+Paris,TX
+Tyler,TX
+Longview,TX
+Texarkana,TX
+Lawton,OK
+Altus,OK
+Frederick,OK
+Ardmore,OK
+Elk City,OK
+Chickasha,OK
+Oklahoma City,OK
+Ada,OK
+Sherman,TX
+Hot Springs,AR
+Idabel,OK
+Sand Point,AK
+Anchorage,AK
+Valdez,AK
+Bristol Bay,AK
+Kotzebue,AK
+Nome,AK
+Dillingham,AK
+Kodiak,AK
+Juneau,AK
+Sitka,AK
+Ketchikan,AK
+Bethel,AK
+Barrow,AK
+Unalaska,AK
+Fairbanks,AK
+Havre,MT
+Shelby,MT
+Great Falls,MT
+Lewistown,MT
+Cody,WY
+Worland,WY
+Riverton,WY
+Sheridan,WY
+Miles City,MT
+Jordan,MT
+Colstrip,MT
+Billings,MT
+Harlowton,MT
+Dillon,MT
+Bozeman,MT
+Helena,MT
+Butte,MT
+Bonners Ferry,ID
+Libby,MT
+Kalispell,MT
+Missoula,MT
+Gillette,WY
+Rawlins,WY
+Casper,WY
+Lusk,WY
+Honolulu,HI
+Kauai,HI
+Maui,HI
+Las Vegas,NM
+Santa Fe,NM
+Tucumcari,NM
+Clayton,NM
+Alamosa,CO
+Albuquerque,NM
+Socorro,NM
+Phoenix,AZ
+Safford,AZ
+Tucson,AZ
+Grand Junction,CO
+Gunnison,CO
+Farmington,NM
+Flagstaff,AZ
+Cortez,CO
+Gallup,AZ
+Hawaii,HI
+Twin Falls,ID
+Burley,ID
+Boise,ID
+Ontario,OR
+McCall,ID
+St. George,UT
+Price,UT
+Moab,UT
+Richfield,UT
+Loa,UT
+Provo,UT
+Salt Lake City,UT
+Logan,UT
+Pocatello,ID
+Salmon,ID
+Jackson,WY
+Steamboat Springs,CO
+Vernal,UT
+Soda Springs,ID
+Rock Springs,WY
+Klamath Falls,CA
+Burns,OR
+Lakeview,OR
+Redding,CA
+Eureka,CA
+Medford,OR
+Crescent City,CA
+Roseburg,OR
+Modesto,CA
+Bakersfield,CA
+Fresno,CA
+Chico,CA
+Sacramento,CA
+San Jose,CA
+Elko,NV
+Winnemucca,NV
+Portola,CA
+Reno,NV
+Santa Rosa,CA
+San Francisco,CA
+Las Vegas,NV
+Mineral,NV
+Mammoth Lakes,CA
+San Diego,CA
+Yuma,CA
+Santa Barbara,CA
+Los Angeles,CA
+Lewiston,ID
+Pullman,WA
+Moses Lake,WA
+Wenatchee,WA
+Spokane,WA
+Colville,WA
+Longview,WA
+Portland,OR
+The Dalles,OR
+Eugene,OR
+Newport,OR
+Yakima,WA
+Kennewick,WA
+La Grande,OR
+Enterprise,OR
+Bend,OR
+Condon,OR
+John Day,OR
+Friday Harbor,WA
+Bellingham,WA
+Port Angeles,WA
+Seattle,WA
