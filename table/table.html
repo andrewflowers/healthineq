@@ -88,9 +88,7 @@
                         // Details
                         onChange: function(city_selection){
                             update_city(city_selection);
-                            console.log("Your selection is " +
-                                current_city + ", " +
-                                current_state + "!");
+                            update_location(current_city + ", " + current_state);
                         }
 
                     });
@@ -109,12 +107,54 @@
     <div class="separator">&nbsp;</div>
 
     <script>
-    // Create table
+
+    var selection = "Johnson City, TN"; 
+
+    function update_location(location){
+        console.log(location);
+        selection = location;
+    }
+
     var health_data;
 
-    d3.csv("sample_table_data.csv", function(data) {
+    // Create table
+    d3.csv("cz_health_and_demo_data.csv", function(data) {
         
         health_data = data;
+
+        function get_selected_data(selection) {
+            
+            return health_data.filter(function(d) { 
+                return d.location == selection;
+            })
+
+        }
+
+        function calcSimilarity(selection) {
+            
+            var selected_data = get_selected_data(selection);
+            
+            // Note: need to add sex and age variables
+            var asian = selected_data[0].asian,
+                black = selected_data[0].black,
+                white = selected_data[0].white,
+                hispanic = selected_data[0].hispanic;
+
+            return health_data.map(function(d, i) {
+                return Math.pow((asian - d.asian), 2) +
+                    Math.pow((black - d.black), 2) +
+                    Math.pow((white - d.white), 2) +
+                    Math.pow((hispanic - d.hispanic), 2);
+            })
+
+
+        }
+
+        var similarity_scores = calcSimilarity(selection);
+
+        health_data.forEach(function(cz, i) {
+            cz.similarity = similarity_scores[i];
+        })
     
         // column definitions
         var columns = [
@@ -122,10 +162,10 @@
             { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1') },
             { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1') },
             { head: 'Exercise', cl: 'num', html: ƒ('exercise_any_q1') },
-            { head: 'Poverty', cl: 'num', html: ƒ('poor_share') }
+            { head: 'Poverty', cl: 'num', html: ƒ('poor_share') },
+            { head: 'Similarity Score', cl: 'num', html: ƒ('similarity') }
         ];
 
-        
         d3.select("body").append("div")
           .attr("id", "container")
 
@@ -144,7 +184,9 @@
         // create table body
         table.append('tbody')
             .selectAll('tr')
-            .data(health_data).enter()
+            .data(health_data.sort(function(a, b){
+                return a.similarity - b.similarity;
+            })).enter()
             .append('tr')
             .selectAll('td')
             .data(function(row, i) {
