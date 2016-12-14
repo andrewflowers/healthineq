@@ -18,7 +18,6 @@
     </style>
 </head>
 <body>
-
     <div id="wrapper">
             <h1>Health metrics by similar locations</h1>
             <div class="demo">
@@ -27,64 +26,81 @@
                     <label for="select-state">State:</label>
                     <select id="select-state" class="contacts" placeholder="Enter state..."></select>
                 </div>
-                <script>
-                
-                var state_selection;
-
-                function state_change(value) {
-                    state_selection = value;
-                    console.log(state_selection);
-                }
-
-                function get_state() {
-                    return state_selection;
-                }
-
-                d3.csv("cz_names_and_states.csv", function(names) {
-
-                    $('#select-state').selectize({
-                        create: false,
-                        persist: false,
-                        maxItems: 1,
-                        maxOptions: null,
-                        highlight: true,
-                        sortField: {field: 'state'},
-                        closeAfterSelect: true,
-                        dropdownParent: 'body',
-                        valueField: 'state',
-                        labelField: 'state',
-                        searchField: ['state'],
-                        options: names,
-                        onChange: function(value) {
-                               state_change(value);
-                          }
-                    });
-            });
-
-                </script>
                 <div class="control-group">
                     <label for="select-city">City:</label>
                     <select id="select-city" class="contacts" placeholder="Enter city..."></select>
                 </div>
                 <script>
+                
+                var select_state, $select_state;
+                var select_city, $select_city;
+                var current_state, current_city;
+
+                function update_state(state_selection){
+                    current_state = state_selection;  
+                }
+
+                function update_city(city_selection){
+                    current_city = city_selection;  
+                }
 
                 d3.csv("cz_names_and_states.csv", function(names) {
-
-                    $('#select-city').selectize({
+                
+                    $select_state = $('#select-state').selectize({
                         create: false,
-                        persist: false,
+                        persist: false, 
                         maxItems: 1,
                         maxOptions: null,
-                        highlight: true,
-                        sortField: {field: 'city'},
                         closeAfterSelect: true,
+                        sortField: {field: 'state'},
+                        valueField: 'state',
+                        labelField: 'state',
+                        searchField: ['state'],
+
+                        // Details
+                        options: names,
+                        onChange: function(state_selection) {
+                            if (!state_selection.length) return;
+                            select_city.disable();
+                            select_city.clearOptions();
+                            select_city.load(function(callback) {
+                                    select_city.enable();
+                                    //callback(names); // Filter by state 
+                                    callback(names.filter(function(d) {
+                                        return d.state == state_selection;
+                                    }));
+                            });
+                            update_state(state_selection);
+                        }
+                    });
+
+                    $select_city = $('#select-city').selectize({
+                        create: false,
+                        persist: false, 
+                        maxItems: 1,
+                        maxOptions: null,
+                        closeAfterSelect: true,
+                        sortField: {field: 'city'},
                         valueField: 'city',
                         labelField: 'city',
-                        searchField: ['city'],
-                        options: names //.filter(function(d) { return d.state == get_state(); })
-                    });
-                });
+                        searchField: ['city'],   
+                        
+                        // Details
+                        onChange: function(city_selection){
+                            update_city(city_selection);
+                            console.log("Your selection is " +
+                                current_city + ", " +
+                                current_state + "!");
+                        }
 
+                    });
+
+                    select_city  = $select_city[0].selectize;
+                    select_state = $select_state[0].selectize;
+
+                    select_city.disable();
+
+                });
 
                 </script>
             </div>
