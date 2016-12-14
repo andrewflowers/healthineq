@@ -117,8 +117,8 @@ th.num, td.num { text-align: right; }
           d3.select("#tooltip").classed("hidden", false);
 
           var div = document.getElementById('tooltip');
-          div.style.left = event.pageX +'px' - 100;
-          div.style.top = event.pageY + 'px' - 100;
+          div.style.left = event.pageX - 100 +'px';
+          div.style.top = event.pageY - 100 + 'px';
           if (d.properties.czname) {
           	div.innerHTML = 'In the ' + 
           				d.properties.czname +
