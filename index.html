@@ -86,11 +86,11 @@ th.num, td.num { text-align: right; }
           <a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive map of life expectancy by commuting zone</h3>
         </section>
       
-        
-<div id="sex-controls">
+  <div id="sex-controls">
   <input name="sex" type="radio" value="male" id="sex-mode-male"><label for="sex-mode-male"> Male</label>
   <input name="sex" type="radio" value="female" id="sex-mode-female" checked><label for="sex-mode-female"> Female</label>
-</div>
+</div>      
+
 <div id="tooltip" class="hidden"></div>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="//d3js.org/topojson.v1.min.js"></script>
@@ -123,8 +123,8 @@ var hover = function(d) {
     d3.select("#tooltip").classed("hidden", false);
 
     var div = document.getElementById('tooltip');
-    div.style.left = event.pageX +'px';
-    div.style.top = event.pageY + 'px';
+    div.style.left = event.pageX -200 +'px';
+    div.style.top = event.pageY -200 + 'px';
     if (d.properties.czname) {
       div.innerHTML = 'In the ' + 
             d.properties.czname +
@@ -146,8 +146,8 @@ var click = function(d) {
     draw_chart(tooltip, d);
     
     var div = document.getElementById('tooltip');
-    div.style.left = event.pageX +'px';
-    div.style.top = event.pageY + 'px';
+    div.style.left = event.pageX -200 +'px';
+    div.style.top = event.pageY -200 + 'px';
 
     d3.select(this.parentNode.appendChild(this)).transition().duration(300)
         .style({'stroke-width':'1.3px','stroke':'black'});
