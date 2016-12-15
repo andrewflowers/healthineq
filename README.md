@@ -1,5 +1,5 @@
 ### Health Inequality Data Visualizations
 
-Based on data from the [Health Inequality Project](www.healthinequality.org).
+Based on data from the [Health Inequality Project](https://healthinequality.org/).
 
-Visualizations can be found [here](www.andrewflowers.github.io/healthineq).
+Visualizations can be found [here](https://andrewflowers.github.io/).
