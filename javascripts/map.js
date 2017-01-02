@@ -1,9 +1,10 @@
-
 // Map controls
 d3.selectAll("#sex-controls input[name=sex]").on("change", function() {
   console.log("The sex radio button chaanged to " + this.value);
   change_map_sex(this.value);
 });
+
+
 
 var width = 1500, // 960
     height = 800; // 500
@@ -42,6 +43,14 @@ var hover = function(d) {
   };
 
 var click = function(d) {
+
+    console.log("The selected state is now " + d.properties.stateabbrv);
+
+    update_state(d.properties.stateabbrv);
+    update_city(d.properties.czname);
+    update_location(current_city + ", " + current_state);
+    
+    if (current_city.length > 0) update_table();
     
     var tooltip = d3.select("#tooltip").classed("hidden", false);
 
@@ -202,6 +211,10 @@ d3.json("cz_and_states_data.json", function(error, data) {
         .style({'stroke-width':'.5px','stroke':'white'})
       })
       .on("click", click)
+      //.on("click", function(){
+      //  console.log("clicked!");
+      //  click();
+      //})
       ;
 
   svg.append("path")
