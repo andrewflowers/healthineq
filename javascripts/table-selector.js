@@ -66,3 +66,10 @@
                     select_city.disable();
 
                 });
+
+
+    var update_selections = function(cz, state) {
+
+
+
+    }

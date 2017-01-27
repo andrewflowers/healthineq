@@ -1,13 +1,13 @@
+/*
 // Map controls
 d3.selectAll("#sex-controls input[name=sex]").on("change", function() {
   console.log("The sex radio button chaanged to " + this.value);
   change_map_sex(this.value);
 });
+*/
 
-
-
-var width = 1500, // 960
-    height = 800; // 500
+var width = 1500, // 960, 1500
+    height = 800; // 500, 800
 
 var projection = d3.geo.albersUsa()
     .scale([1500])

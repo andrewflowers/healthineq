@@ -79,6 +79,8 @@
             .selectAll('tr')
             .data(health_data.sort(function(a, b){
                 return a.similarity - b.similarity;
+            }).filter(function(d, i) {
+              return i < 20;  
             }))
             .enter()
             .append('tr')
@@ -125,6 +127,8 @@
         table.selectAll('tr')
             .data(health_data.sort(function(a, b){
                 return a.similarity - b.similarity;
+            }).filter(function(d, i) {
+              return i < 20;  
             }))
             .selectAll('td')
             .data(function(row, i) {
