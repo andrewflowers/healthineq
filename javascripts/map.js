@@ -1,68 +1,164 @@
-/*
-// Map controls
-d3.selectAll("#sex-controls input[name=sex]").on("change", function() {
-  console.log("The sex radio button chaanged to " + this.value);
-  change_map_sex(this.value);
-});
-*/
+// Map and chart
 
-var width = 1500, // 960, 1500
-    height = 800; // 500, 800
+// First, define global selection variables and helper functions
+
+// Try to geo-locate based on user later
+var default_selection = "Johnson City, TN",
+    current_selection = "Johnson City, TN";
+
+function update_current_selection(selected_location){
+    current_selection = selected_location;
+}
+
+function get_selected_data(selected_location) {
+
+    return health_data.filter(function(d) { 
+        return d.location == selected_location;
+    })
+
+}
+
+// Map specifications
+
+var map_width = 1500, map_height = 800,
+    chart_width = 400, chart_height = 200; 
 
 var projection = d3.geo.albersUsa()
-    .scale([1500])
-    .translate([width / 2, height / 2]);
+    .scale([map_width])
+    .translate([map_width / 2, map_height / 2]);
 
 var path = d3.geo.path().
   projection(projection);
 
+// Create map svg element
 var svg = d3.select("body")
   .append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", map_width)
+    .attr("height", map_height);
 
-var hover = function(d) {
-    
-    d3.select("#tooltip").classed("hidden", false);
+// Create life expectancy chart div element
+var chart = d3.select("body")
+  .append("div")
+  .attr("id", "le_chart")
+  .attr("width", chart_width)
+  .attr("height", chart_height);
 
-    var div = document.getElementById('tooltip');
-    div.style.left = event.pageX -200 +'px';
-    div.style.top = event.pageY -200 + 'px';
-    if (d.properties.czname) {
-      div.innerHTML = 'In the ' + 
-            d.properties.czname +
-            ' area, life expectancy is ' +
-            Math.round(parseFloat(d.properties.le_raceadj_q1_F)*10)/10 + '.' + "\n" +
-            'Click for more info.';
-          } else {
-            div.innerHTML = 'No data';
-          }
-    
-    d3.select(this.parentNode.appendChild(this)).transition().duration(300)
-        .style({'stroke-width':'1.3px','stroke':'black'});
-  };
+draw_main_chart(chart);
 
-var click = function(d) {
+// Draw main chart
 
-    console.log("The selected state is now " + d.properties.stateabbrv);
+function draw_main_chart(selection) {
 
-    update_state(d.properties.stateabbrv);
-    update_city(d.properties.czname);
-    update_location(current_city + ", " + current_state);
-    
-    if (current_city.length > 0) update_table();
-    
-    var tooltip = d3.select("#tooltip").classed("hidden", false);
+  // Dummy data
+  var le_data = [{ quartile: 'Q1', sex: 'f', le: 80},
+                  { quartile: 'Q2', sex: 'f', le: 82},
+                  { quartile: 'Q3', sex: 'f', le: 84},
+                  { quartile: 'Q4', sex: 'f', le: 86},
+                  { quartile: 'Q1', sex: 'm', le: 74},
+                  { quartile: 'Q2', sex: 'm', le: 76},
+                  { quartile: 'Q3', sex: 'm', le: 78},
+                  { quartile: 'Q4', sex: 'm', le: 80}
+                  ];
 
-    draw_chart(tooltip, d);
-    
-    var div = document.getElementById('tooltip');
-    div.style.left = event.pageX -200 +'px';
-    div.style.top = event.pageY -200 + 'px';
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = chart_width - margin.left - margin.right,
+    height = chart_height - margin.top - margin.bottom;
 
-    d3.select(this.parentNode.appendChild(this)).transition().duration(300)
-        .style({'stroke-width':'1.3px','stroke':'black'});
-  };
+    var x0 = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+    var y = d3.scale.linear()
+        .range([height, 0]);
+
+    var color = d3.scale.ordinal()
+        .range(['indianred', 'steelblue']);
+
+    var xAxis = d3.svg.axis()
+        .scale(x0)
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(5);
+        //.tickFormat(d3.format(".2s"));
+
+    var svg = selection.append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    x0.domain(["Q1", "Q2", "Q3", "Q4"]);
+    y.domain([70, 90]); // NOTE: need to fix this
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        //.attr("transform", "rotate(-90)")
+        .attr("y", -10)
+        .attr("x", width * (2/3))
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .style("font-weight", "bold")
+        .text("Life expectancy");
+
+    var quartile = svg.selectAll(".quartile")
+        .data(le_data)
+      .enter().append("g")
+        .attr("class", "quartile");
+
+    quartile.selectAll("rect")
+        .data(le_data)
+      .enter().append("rect")
+        .attr("width", 10)
+        .attr("x", function(d) { if (d.sex == 'm') {
+                    return x0(d.quartile) + 10 ; 
+                  } else if (d.sex == 'f'){
+                    return x0(d.quartile) + 20; 
+                  }
+                })
+        .attr("y", function(d) { return y(d.le); })
+        .attr("height", function(d) { return height - y(d.le); })
+        .style("fill", function(d) { return color(d.sex); });
+
+    quartile.append("text")
+        .attr("x", function(d) { if (d.sex == 'm') {
+                    return x0(d.quartile) - 3; 
+                  } else if (d.sex == 'f'){
+                    return x0(d.quartile) + 20; 
+                  }
+                })
+        .attr("y", function(d) { return y(d.le) - 2; })
+        .style("font-size","11px")
+        .text(function(d) { return Math.round(parseFloat(d.le)*10)/10; });
+
+  var legend = svg.selectAll(".legend")
+        .data(['F', 'M'])
+      .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+        .attr("x", width + 5)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+    legend.append("text")
+        .attr("x", width - 2)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
+
+}
 
 function draw_chart(tooltip_selection, d) {
 
@@ -177,9 +273,51 @@ function draw_chart(tooltip_selection, d) {
 
 }
 
+// Hover and click functions
+var hover = function(d) {
+    
+    d3.select("#tooltip").classed("hidden", false);
+
+    var div = document.getElementById('tooltip');
+    div.style.left = event.pageX -200 +'px';
+    div.style.top = event.pageY -200 + 'px';
+    if (d.properties.czname) {
+      div.innerHTML = 'In the ' + 
+            d.properties.czname +
+            ' area, life expectancy is ' +
+            Math.round(parseFloat(d.properties.le_raceadj_q1_F)*10)/10 + '.' + "\n" +
+            'Click for more info.';
+          } else {
+            div.innerHTML = 'No data';
+          }
+    
+    d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+        .style({'stroke-width':'1.3px','stroke':'black'});
+  };
+
+var click = function(d) {
+
+    update_state(d.properties.stateabbrv);
+    update_city(d.properties.czname);
+    update_current_selection(current_city + ", " + current_state);
+    
+    if (current_city.length > 0) update_table();
+    
+    var tooltip = d3.select("#tooltip").classed("hidden", false);
+
+    draw_chart(tooltip, d);
+    
+    var div = document.getElementById('tooltip');
+    div.style.left = event.pageX -200 +'px';
+    div.style.top = event.pageY -200 + 'px';
+
+    d3.select(this.parentNode.appendChild(this)).transition().duration(300)
+        .style({'stroke-width':'1.3px','stroke':'black'});
+  };
+
+// Load data and fill map
 d3.json("cz_and_states_data.json", function(error, data) {
 
-  
   if (error) return console.error(error);
 
   var commuting_zones = topojson.feature(data, data.objects.commuting_zones).features,
@@ -222,7 +360,7 @@ d3.json("cz_and_states_data.json", function(error, data) {
       .attr("d", path)
       .attr("class", "state");
 
-  // drawing legend --> NEED TO MAKE DYNAMIC
+  // Map legend
   var legend_labels = ["78", "79", "80", "81", "82",
                         "83", "84", "85", "86"];
   var ls_w = 60, ls_h = 20;
@@ -235,7 +373,7 @@ d3.json("cz_and_states_data.json", function(error, data) {
 
   legend.append("rect")
     .attr("y", 750)
-    .attr("x", function(d, i){ return height - (i*ls_w) + 100;})
+    .attr("x", function(d, i){ return map_height - (i*ls_w) + 100;})
     .attr("width", ls_w)
     .attr("height", ls_h)
     .style("fill", function(d, i) { return color(d); })
@@ -243,10 +381,12 @@ d3.json("cz_and_states_data.json", function(error, data) {
 
   legend.append("text")
     .attr("y", 790)
-    .attr("x", function(d, i){ return height - (i*ls_w) + 120 ;})
+    .attr("x", function(d, i){ return map_height - (i*ls_w) + 120 ;})
     .text(function(d, i){ return legend_labels[i]; });
      
 });
+
+// Functions for changing map w/ radio buttons
 
 function get_le_name(sex_value, quartile_value){
   var sex_code;
@@ -306,11 +446,15 @@ function change_map_sex(sex_value) {
       .data([states])
       .attr("d", path)
       .attr("class", "state");
-
-
      
 });
 
-
-
 }
+
+/*
+// Map controls
+d3.selectAll("#sex-controls input[name=sex]").on("change", function() {
+  console.log("The sex radio button chaanged to " + this.value);
+  change_map_sex(this.value);
+});
+*/

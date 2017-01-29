@@ -4,6 +4,7 @@
 
                 function update_state(state_selection){
                     current_state = state_selection;  
+                    console.log("The state has been updated to: " + current_state);
                 }
 
                 function update_city(city_selection){
@@ -66,10 +67,3 @@
                     select_city.disable();
 
                 });
-
-
-    var update_selections = function(cz, state) {
-
-
-
-    }

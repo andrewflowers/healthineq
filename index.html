@@ -36,29 +36,26 @@
   </header>
 
   <div id="content-wrapper">
-  <div class="inner clearfix">
+    <div class="inner clearfix">
 
-  <section id="main-content">
-    <h3>
-    <a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive map of life expectancy by commuting zone</h3>
-  </section>
+    <section id="main-content">
+      <h3>
+        <a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive map of life expectancy by commuting zone</h3>
+    </section>
 
-  <div id="tooltip" class="hidden"></div>
+    <div id="tooltip" class="hidden"></div>
+    
+    <!-- Map and chart of life expectancy -->
+    <script src="javascripts/map.js">
+      // Map and chart
+    </script>
 
-  <script src="packages/d3.v3.js" charset="utf-8"></script>
-  <script src="packages/topojson.v1.min.js"></script>
-  <script src="packages/d3-queue.v2.min.js"></script>
-  <script src="javascripts/map.js">
-
-  // Map
-
-  </script>
-
-  </div>
+    </div>
   </div>
 
   <div class="separator">&nbsp;</div>	  
 
+  <!-- Table of similar areas-->
   <div id="wrapper">
 
     <h1>Health metrics by similar locations</h1>
@@ -76,27 +73,19 @@
     </div>
 
     <script src= "javascripts/table-selector.js">
-
-    // Table selector
-
+      // Table selector
     </script>
 
-  </div>
+    </div>
   </div>
 
   <div class="separator">&nbsp;</div>
 
-  <script src="packages/d3.v3.js"></script>
+  <!-- I need this otherwise I get an error, but why? -->
   <script src="packages/d3-jetpack.js"></script>
-  <script src="packages/selectize.js"></script>
-
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/stylesheet.css">
 
   <script src="javascripts/table.js">
-
     // Table 
-
   </script>
 
   </div>	
