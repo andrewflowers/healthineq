@@ -36,7 +36,12 @@
 	display: none;
 }
 
-/* center table */
+#le_chart {
+  width: 20%;
+  margin: 0 auto; 
+  padding: 50px;
+}
+
 table { 
   width: 80%;
   margin: 0 auto;
