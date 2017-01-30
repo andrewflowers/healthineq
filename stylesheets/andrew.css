@@ -45,12 +45,9 @@ body h1 p { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding:
   padding: 50px;
 }
 
-/*
 #le_chart_svg {
-  width: 30%;
-  float: left;
+  z-index: 12;
 }
-*/
 
 table { 
   width: 80%;
@@ -98,7 +95,6 @@ th.num, td.num {
   }	 
 
 #buttons {
-  float: left;
   z-index: 2;
   background: white;
   border-radius: 10px;
@@ -133,7 +129,7 @@ th.num, td.num {
 }
 
 .select-state {
-   overflow:auto;
+   overflow: auto;
 }
 
 .quartile-text  {
@@ -148,4 +144,5 @@ th.num, td.num {
 
 #wrapper {
   width: 70%;
+  z-index: 5;
 }
