@@ -37,7 +37,7 @@ update_le_selection(default_le_type, default_le_quartile, default_le_sex);
 
 // Map specifications
 var map_width = 1500, map_height = 800,
-    chart_width = 400, chart_height = 200; 
+    chart_width = 500, chart_height = 300; 
 
 var projection = d3.geo.albersUsa()
     .scale([map_width])
@@ -62,6 +62,9 @@ var chart = d3.select("body")
 // Life expectancy range
 var le_min = 70, le_max = 95;
 
+// Bar params
+var bar_width = 30;
+
 // Draw life expectancy chart
 function draw_chart(selection) {
 
@@ -85,7 +88,7 @@ function draw_chart(selection) {
     height = chart_height - margin.top - margin.bottom;
 
     var x0 = d3.scale.ordinal()
-        .rangeRoundBands([0, width], .1);
+        .rangeRoundBands([0, width], 0.5);
 
     var y = d3.scale.linear()
         .range([height, 0]);
@@ -114,16 +117,16 @@ function draw_chart(selection) {
     y.domain([le_min, le_max]); // NOTE: Should I fix this?
 
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
     // FIX: text is not appearing
     svg.append("g")
-        .attr("class", "y axis")
+        .attr("class", "y-axis")
         .call(yAxis)
       .append("text")
-        //.attr("transform", "rotate(-90)")
+        .attr("class", "chart-text")
         .attr("y", -10)
         .attr("x", width * (2/3))
         .attr("dy", ".71em")
@@ -139,9 +142,9 @@ function draw_chart(selection) {
     quartile.selectAll("rect")
         .data(le_data)
       .enter().append("rect")
-        .attr("width", 10)
+        .attr("width", bar_width)
         .attr("x", function(d) { if (d.sex == 'm') {
-                    return x0(d.quartile) + 10 ; 
+                    return x0(d.quartile) - 10; 
                   } else if (d.sex == 'f'){
                     return x0(d.quartile) + 20; 
                   }
@@ -159,7 +162,8 @@ function draw_chart(selection) {
                   }
                 })
         .attr("y", function(d) { return y(d.le) - 2; })
-        .style("font-size","11px")
+        .style("font-size","15px")
+        .style("text-anchor", "middle")
         .text(function(d) { return Math.round(parseFloat(d.le)*10)/10; });
 
   var legend = svg.selectAll(".legend")
@@ -205,7 +209,7 @@ function update_chart() {
     height = chart_height - margin.top - margin.bottom;
 
   var x0 = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1);
+      .rangeRoundBands([0, width], 0.5);
 
   var y = d3.scale.linear()
       .range([height, 0]);
@@ -232,13 +236,13 @@ function update_chart() {
 
   quartile.selectAll("rect")
       .data(le_data)
-      .attr("width", 10)
-      .attr("x", function(d) { if (d.sex == 'm') {
-                  return x0(d.quartile) + 10 ; 
-                } else if (d.sex == 'f'){
-                  return x0(d.quartile) + 20; 
-                }
-              })
+      .attr("width", bar_width)
+        .attr("x", function(d) { if (d.sex == 'm') {
+                    return x0(d.quartile) - 10; 
+                  } else if (d.sex == 'f'){
+                    return x0(d.quartile) + 20; 
+                  }
+                })
       .attr("y", function(d) { return y(d.le); })
       .attr("height", function(d) { return height - y(d.le); })
       .style("fill", function(d) { return color(d.sex); });
@@ -254,8 +258,21 @@ function update_chart() {
                 }
               })
       .attr("y", function(d) { return y(d.le) - 2; })
-      .style("font-size","11px")
+      .style("font-size","15px")
+      .style("text-anchor", "middle")
       .text(function(d) { return Math.round(parseFloat(d.le)*10)/10; });
+}
+
+function return_quartile() {
+  if (le_quartile == 1) {
+    return " bottom ";
+  } else if (le_quartile == 2) {
+    return " second ";
+  } else if (le_quartile == 1) {
+    return " third ";
+  } else if (le_quartile == 4) {
+    return " top ";
+  }
 }
 
 // Hover and click functions
@@ -269,8 +286,10 @@ var hover = function(d) {
     if (d.properties.czname) {
       div.innerHTML = 'In the ' + 
             d.properties.czname +
-            ' area, life expectancy is ' +
-            Math.round(parseFloat(d.properties[current_le_selection])*10)/10 + '.';
+            ' area, life expectancy for ' +
+            (le_sex == "M" ? ' men ' : ' women ') + ' in the ' +
+            return_quartile() +
+            ' quartile is ' + Math.round(parseFloat(d.properties[current_le_selection])*10)/10 + '.';
           } else {
             div.innerHTML = 'No data because population is less than 25,000.';
           }
@@ -386,7 +405,7 @@ navigator.geolocation.getCurrentPosition(function(d) {
 
 // Create map buttons 
 var button_width = 80, button_height = 30,
-button_vert_gap = 50, button_horz_gap = 5,
+button_vert_gap = 35, button_horz_gap = 5,
 sex_quartile_gap = 50;
 
 // Sex buttons
@@ -445,6 +464,12 @@ function sex_button_click(d, i) {
 var quartile_buttons = svg.select("#buttons")
 .append("g")
   .attr("id", "quartile-controls");
+
+quartile_buttons.append("text")
+  .attr("class", "button-headers")
+  .attr("x", map_width * .80)
+  .attr("y", (map_height * .5) + button_vert_gap)
+  //.text("Income \nquartiles:");
 
 // Q1
 quartile_buttons.append("rect")

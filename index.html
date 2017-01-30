@@ -12,7 +12,7 @@
     <script src="packages/topojson.v1.min.js"></script>
     <script src="packages/d3-queue.v2.min.js"></script>
 
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <!-- link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'-->
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
@@ -53,21 +53,19 @@
     </div>
   </div>
 
-  <div class="separator">&nbsp;</div>	  
-
   <!-- Table of similar areas-->
   <div id="wrapper">
 
     <h1>Health metrics by similar locations</h1>
 
     <div class="demo">
-      <p>Enter your city and state to see similar areas and their health metrics:</p>
-      <div class="control-group">
+      <p>Enter your city and state to see the health metrics of the 20 most similar areas:</p>
+      <div class="select-state">
       <label for="select-state">State:</label>
       <select id="select-state" class="contacts" placeholder="Enter state..."></select>
     </div>
 
-    <div class="control-group">
+    <div class="select-city">
       <label for="select-city">City:</label>
       <select id="select-city" class="contacts" placeholder="Enter city..."></select>
     </div>
@@ -78,8 +76,6 @@
 
     </div>
   </div>
-
-  <div class="separator">&nbsp;</div>
 
   <!-- I need this otherwise I get an error, but why? -->
   <script src="packages/d3-jetpack.js"></script>

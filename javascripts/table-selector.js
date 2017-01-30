@@ -6,7 +6,7 @@ var select_city, $select_city;
 d3.csv("data/cz_names_and_states.csv", function(names) {
 
     $select_state = $('#select-state').selectize({
-        create: false,
+        create: true,
         persist: false, 
         maxItems: 1,
         maxOptions: null,
@@ -15,6 +15,7 @@ d3.csv("data/cz_names_and_states.csv", function(names) {
         valueField: 'state',
         labelField: 'state',
         searchField: ['state'],
+        dropdownParent: 'div .select-state',
 
         // Details
         options: names,

@@ -1,6 +1,6 @@
 /* Custom CSS Styling */
 
-body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
+body h1 p { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
 
 .cz {
   stroke: white;
@@ -19,8 +19,8 @@ body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px
   position: absolute;
   z-index: 2;
   background: white; /* gba(0,153,76,0.8); */
-  width:130px;
-  height:80px;
+  width:150px;
+  height:100px;
   color:black;
   font-size: 15px;
   padding:5px;
@@ -44,6 +44,13 @@ body { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px
   margin: 0 auto; 
   padding: 50px;
 }
+
+/*
+#le_chart_svg {
+  width: 30%;
+  float: left;
+}
+*/
 
 table { 
   width: 80%;
@@ -76,6 +83,15 @@ td.title {
 
 th.center, td.center { text-align: center; }
 
+thead {
+ font-family: "Lucida Console", Monaco, monospace; 
+}
+
+.x-axis .y-axis {
+  font-size: 18px;
+  font-weight: 600;
+}
+
 th.num, td.num { 
   text-align: right; 
   font-family: "Lucida Console", Monaco, monospace; 
@@ -85,6 +101,7 @@ th.num, td.num {
   float: left;
   z-index: 2;
   background: white;
+  border-radius: 10px;
 }
 
 .button {
@@ -97,6 +114,7 @@ th.num, td.num {
   fill: #eee;
   stroke: black; 
   stroke-width: 2px;
+
 }
 
 .button-labels {
@@ -114,5 +132,20 @@ th.num, td.num {
   fill: #8e8e8e;
 }
 
+.select-state {
+   overflow:auto;
+}
 
+.quartile-text  {
+  font-size: 15px;
+  font-weight: 500;
+}
 
+.chart-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#wrapper {
+  width: 70%;
+}
