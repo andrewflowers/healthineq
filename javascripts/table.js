@@ -1,9 +1,17 @@
 // Table 
 
-// Similarity score function
-function calcSimilarity(selection) {
-    
-    var selected_data = get_selected_data(selection);
+// Global variables and helper functions
+var health_data, selected_health_data, subset_health_data, 
+    table, similarity_scores, heatmap_color, num_cz_table = 21;
+
+function get_selected_data(selected_location) {
+    return health_data.filter(function(d) { 
+        return d.location == selected_location;
+    })
+}
+
+function calc_similarity() {
+    var selected_data = get_selected_data(current_selection);
     
     return health_data.map(function(d, i) {
         return Math.pow((selected_data[0].asian - d.asian), 2) +
@@ -20,31 +28,56 @@ function calcSimilarity(selection) {
 
 // Table column headers
 var columns = [
-    { head: 'Location', cl: 'title', html: ƒ('location') },
-    { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1', d3.format('.3f')) },
-    { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1', d3.format('.3f')) },
-    { head: 'Exercise', cl: 'num', html: ƒ('exercise_any_q1', d3.format('.3f')) },
-    { head: 'Poverty', cl: 'num', html: ƒ('poor_share', d3.format('.3f')) },
-    { head: 'Similarity Score', cl: 'num', html: ƒ('similarity', d3.format('.3f')) }
+    { head: 'Location', cl: 'title', html: ƒ('location'), var: 'location' },
+    { head: 'Life expectancy', cl: 'num', html: ƒ(current_le_selection, d3.format('.1f')), var: current_le_selection, raw: ƒ(current_le_selection) },
+    { head: 'Uninsured', cl: 'num', html: ƒ('puninsured2010', d3.format('.1%')), var: "puninsured2010", raw: ƒ('puninsured2010', d3.format('.5f'))},
+    { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1', d3.format('.1%')), var: "cur_smoke_q1", raw: ƒ('cur_smoke_q1', d3.format('.5f'))},
+    { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1', d3.format('.1%')), var:  "bmi_obese_q1", raw: ƒ('bmi_obese_q1', d3.format('.5f'))},
+    { head: 'Exercised', cl: 'num', html: ƒ('exercise_any_q1', d3.format('.1%')), var: "exercise_any_q1", raw: ƒ('exercise_any_q1', d3.format('.5f'))},
+    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))},
+    //{ head: 'Similarity Score', cl: 'num', html: ƒ('similarity', d3.format('.3f')) }
 ];
 
-// Create table
-var health_data, table, similarity_scores, num_cz_table = 20;
+function update_table_columns() {
 
+    columns = [
+    { head: 'Location', cl: 'title', html: ƒ('location'), var: 'location' },
+    { head: 'Life expectancy', cl: 'num', html: ƒ(current_le_selection, d3.format('.1f')), var: current_le_selection, raw: ƒ(current_le_selection) },
+    { head: 'Uninsured', cl: 'num', html: ƒ('puninsured2010', d3.format('.1%')), var: "puninsured2010", raw: ƒ('puninsured2010', d3.format('.5f'))},
+    { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1', d3.format('.1%')), var: "cur_smoke_q1", raw: ƒ('cur_smoke_q1', d3.format('.5f'))},
+    { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1', d3.format('.1%')), var:  "bmi_obese_q1", raw: ƒ('bmi_obese_q1', d3.format('.5f'))},
+    { head: 'Exercised', cl: 'num', html: ƒ('exercise_any_q1', d3.format('.1%')), var: "exercise_any_q1", raw: ƒ('exercise_any_q1', d3.format('.5f'))},
+    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))},
+    //{ head: 'Similarity Score', cl: 'num', html: ƒ('similarity', d3.format('.3f')) }
+    ];
+}
+
+// Heatmap color scale
+heatmap_color = d3.scale.linear()
+    .range(["#FFFFDD","#AAF191","#80D385","#61B385","#3E9583","#217681","#285285","#1F2D86","#000086"])
+    .interpolate(d3.interpolateHcl);
+
+// Create table
 d3.csv("data/cz_health_demo_le_data.csv", function(data) {
     
     health_data = data;
 
-    similarity_scores = calcSimilarity(current_selection);
+    similarity_scores = calc_similarity();
 
     health_data.forEach(function(cz, i) {
         cz.similarity = similarity_scores[i];
     })
 
-    // health_data = health_data.slice(0,49);
+    selected_health_data = get_selected_data(current_selection)[0];
+
+    subset_health_data = health_data.sort(function(a, b){
+            return a.similarity - b.similarity;
+        }).filter(function(d, i) {
+          return i < num_cz_table;  
+        });
 
     d3.select("body").append("div")
-      .attr("id", "container")
+        .attr("id", "container");
 
     d3.select("#container").append("div")
       .attr("id", "FilterableTable");
@@ -58,14 +91,51 @@ d3.csv("data/cz_health_demo_le_data.csv", function(data) {
         .attr('class', ƒ('cl'))
         .text(ƒ('head'));
 
-    // create table body
     table.append('tbody')
+        .append('tr')
+            .attr('id', 'selected_tr')
+        .data(selected_health_data)
+        .enter()
+        .append('tr');
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "title")
+            .html(selected_health_data.location);
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num le")
+            .html(d3.format(".1f")(selected_health_data[current_le_selection]));
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num ins")
+            .html(d3.format(".1%")(selected_health_data.puninsured2010));
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num smo")
+            .html(d3.format(".1%")(selected_health_data.cur_smoke_q1));
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num bmi")
+            .html(d3.format(".1%")(selected_health_data.bmi_obese_q1));
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num ex")
+            .html(d3.format(".1%")(selected_health_data.exercise_any_q1));
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "num poor")
+            .html(d3.format(".1%")(selected_health_data.poor_share));
+
+    table.select('tbody')
         .selectAll('tr')
-        .data(health_data.sort(function(a, b){
-            return a.similarity - b.similarity;
-        }).filter(function(d, i) {
-          return i < num_cz_table;  
-        }))
+        .data(subset_health_data)
         .enter()
         .append('tr')
         .selectAll('td')
@@ -80,37 +150,48 @@ d3.csv("data/cz_health_demo_le_data.csv", function(data) {
             });
         }).enter()
         .append('td')
+        .attr("bgcolor", function(d,i){ 
+            var column_vars = columns.map(function(d) { return d.var;});
+
+            for (i = 2; i < column_vars.length; i++) {
+                //var column_var = "poor_share";
+                var column_var = column_vars[i];
+
+                if(d.var == column_var){
+                    heatmap_color.domain(d3.extent(subset_health_data.map(function(d){return d[column_var];}).map(Number)));
+                    
+                    if (typeof d.raw != "undefined"){
+                        return heatmap_color(d.raw);    
+                    }
+                    
+                } 
+            }
+        })
         .html(ƒ('html'))
         .attr('class', ƒ('cl'));
-
-    d3.select("#search")
-        .on("keyup", function() { 
-        var text = this.value.trim();
-        console.log(text);
-    });
-
 });
 
 function update_table() {
 
-    similarity_scores = calcSimilarity(current_selection);
+    update_table_columns();
+
+    similarity_scores = calc_similarity();
 
     health_data.forEach(function(cz, i) {
         cz.similarity = similarity_scores[i];
     }) 
 
-    // create heatmap scale
-    var similarity_scale = d3.scale.linear()
-        .domain([0, d3.max(similarity_scores, function(d) { return d;})])
-        .range(["red","steelblue"]);
+    subset_health_data = health_data.sort(function(a, b){
+        return a.similarity - b.similarity;
+    }).filter(function(d, i) {
+      return i < num_cz_table;  
+    });
 
-    // update table body
-    table.selectAll('tr')
-        .data(health_data.sort(function(a, b){
-            return a.similarity - b.similarity;
-        }).filter(function(d, i) {
-          return i < num_cz_table;  
-        }))
+    selected_health_data = get_selected_data(current_selection)[0];
+
+    // Update table body
+    table.selectAll('tr:not(#selected_tr)')
+        .data(subset_health_data)
         .selectAll('td')
         .data(function(row, i) {
             return columns.map(function(c) {
@@ -122,12 +203,43 @@ function update_table() {
                 return cell;
             });
         })
-        .attr("bgcolor", function(d,i){     
-            if(d.head == "Similarity Score"){
-                return similarity_scale(d.html)
+        .attr("bgcolor", function(d,i){ 
+            var column_vars = columns.map(function(d) { return d.var;});
+
+            for (i = 2; i < column_vars.length; i++) {
+                //var column_var = "poor_share";
+                var column_var = column_vars[i];
+
+                if(d.var == column_var){
+                    heatmap_color.domain(d3.extent(subset_health_data.map(function(d){return d[column_var];}).map(Number)));
+                    return heatmap_color(d.raw);
+                } 
             }
         })
         .html(ƒ('html'))
         .attr('class', ƒ('cl'));
+
+    // Update selected row
+
+    table.select("#selected_tr .title")
+        .html(selected_health_data.location);
+
+    table.select("#selected_tr .le")
+        .html(d3.format(".1f")(selected_health_data[current_le_selection]));
+
+    table.select("#selected_tr .ins")
+        .html(d3.format(".1%")(selected_health_data.puninsured2010));
+
+    table.select("#selected_tr .smo")
+        .html(d3.format(".1%")(selected_health_data.cur_smoke_q1));
+
+    table.select("#selected_tr .bmi")
+        .html(d3.format(".1%")(selected_health_data.bmi_obese_q1));
+
+    table.select("#selected_tr .ex")
+        .html(d3.format(".1%")(selected_health_data.exercise_any_q1));
+
+    table.select("#selected_tr .poor")
+        .html(d3.format(".1%")(selected_health_data.poor_share));
 
 }

@@ -1,3 +1,5 @@
+// Commuting zone and state selector for table
+
 var select_state, $select_state;
 var select_city, $select_city;
 

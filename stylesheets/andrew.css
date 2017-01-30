@@ -50,10 +50,36 @@ table {
   margin: 0 auto;
 }
 
-th { text-align: left; } 
-th, td { padding: 0 1em 0.5ex 0;}
+th { 
+  text-align: center; 
+  font-weight: bold;
+} 
+
+th, td { 
+  padding: 0 1em 0.5ex 0;
+  f 
+}
+
+td {
+  font-weight: 400;
+}
+
+#selected_tr {
+  font-style: italic;
+  background-color: grey;
+}
+
+td.title { 
+  text-align: left; 
+  padding: 0 0 0 1em;
+} 
+
 th.center, td.center { text-align: center; }
-th.num, td.num { text-align: right; }	 
+
+th.num, td.num { 
+  text-align: right; 
+  font-family: "Lucida Console", Monaco, monospace; 
+  }	 
 
 #buttons {
   float: left;

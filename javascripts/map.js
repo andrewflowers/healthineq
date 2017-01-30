@@ -20,14 +20,7 @@ function update_current_selection(selected_location){
     console.log("The selection has been updated to: " + current_selection);
 }
 
-var commuting_zones, states, color;
-
-function get_selected_data(selected_location) {
-    return health_data.filter(function(d) { 
-        return d.location == selected_location;
-    })
-
-}
+var commuting_zones, states, color; // NOTE: need to change color to be map_color
 
 // Life expectancy variables and methods
 var default_le_type = "raceadj", default_le_quartile = 1, default_le_sex = "M",
@@ -279,7 +272,7 @@ var hover = function(d) {
             ' area, life expectancy is ' +
             Math.round(parseFloat(d.properties[current_le_selection])*10)/10 + '.';
           } else {
-            div.innerHTML = 'No data for this area.';
+            div.innerHTML = 'No data because population is less than 25,000.';
           }
     
     d3.select(this.parentNode.appendChild(this)).transition().duration(300)
@@ -302,7 +295,7 @@ var click = function(d) {
   };
 
 // Load geo data and create map
-d3.json("cz_and_states_data.json", function(error, data) {
+d3.json("data/cz_and_states_data.json", function(error, data) {
 
   if (error) return console.error(error);
 
@@ -373,6 +366,23 @@ d3.json("cz_and_states_data.json", function(error, data) {
   draw_chart(chart);     
 
 });
+
+// Find geolocation of user
+navigator.geolocation.getCurrentPosition(function(d) {
+    console.log(d);
+
+    svg.append("circle")
+    .attr({
+      r:7,
+      transform: function() {
+      var coord = projection([d.coords.longitude,d.coords.latitude])
+          return "translate("+coord+")"
+      },
+      fill:"CornflowerBlue"
+    })
+
+  });
+
 
 // Create map buttons 
 var button_width = 80, button_height = 30,
