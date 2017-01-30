@@ -1,7 +1,7 @@
 var select_state, $select_state;
 var select_city, $select_city;
 
-d3.csv("cz_names_and_states.csv", function(names) {
+d3.csv("data/cz_names_and_states.csv", function(names) {
 
     $select_state = $('#select-state').selectize({
         create: false,

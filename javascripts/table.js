@@ -31,7 +31,7 @@ var columns = [
 // Create table
 var health_data, table, similarity_scores, num_cz_table = 20;
 
-d3.csv("cz_health_and_demo_data.csv", function(data) {
+d3.csv("data/cz_health_demo_le_data.csv", function(data) {
     
     health_data = data;
 
