@@ -86,7 +86,6 @@ cty_race <- race %>%
          asian = `Not Hispanic or Latino: - Asian alone`,
          hispanic = `Hispanic or Latino:`)
 
-
 # Merge county data and map to commuting zones
 
 cty_data <- cty_age %>% 
@@ -119,13 +118,20 @@ cz_data_agg <- cz_data %>%
 
 # Join health metrics data
 
-cz_health_metrics <- read_csv("health_ineq_online_table_10.csv")
+cz_health_metrics <- read_csv("../health_ineq_data/health_ineq_online_table_10.csv")
 
-cz_all_data <- cz_health_metrics %>% 
+cz_health_and_demo <- cz_health_metrics %>% 
   left_join(cz_data_agg %>% 
               mutate(czone = as.integer(czone)), 
             by = c("cz" = "czone")) %>% 
   mutate(location = paste0(czname, ", ", stateabbrv)) %>% 
   select(1:6, 79, 7:78)
   
-write_csv(cz_all_data, "cz_health_and_demo_data.csv")
+# Join life expectancy data
+cz_le_metrics <- read_csv("../health_ineq_data/health_ineq_online_table_6.csv")
+
+cz_health_demo_le_data <- cz_health_and_demo %>% 
+  left_join(cz_le_metrics %>% 
+              select(-c(2:6)), by = "cz")
+
+write_csv(cz_health_demo_le_data, "../gh-pages/data/cz_health_demo_le_data.csv")
