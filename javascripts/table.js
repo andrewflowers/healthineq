@@ -99,13 +99,10 @@ function update_table() {
         cz.similarity = similarity_scores[i];
     }) 
 
-    // health_data = health_data.slice(0,49);
-
     // create heatmap scale
     var similarity_scale = d3.scale.linear()
         .domain([0, d3.max(similarity_scores, function(d) { return d;})])
         .range(["red","steelblue"]);
-
 
     // update table body
     table.selectAll('tr')
