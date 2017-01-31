@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="packages/jquery.min.js"></script>
+    <script src="packages/d3-jetpack.js"></script>
+    <script src="packages/selectize.js"></script>
+    <script src="packages/d3.v3.js" charset="utf-8"></script>
+    <script src="packages/topojson.v1.min.js"></script>
+    <script src="packages/d3-queue.v2.min.js"></script>
+
+    <!-- link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'-->
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/andrew.css" media="screen">
+
+    <title>Health Inequality Data Visualizations, by Andrew Flowers</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+
+<body>
+  <header>
+    <div class="inner">
+      <h2>Health inequality data visualizations</h2>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+
+    <section id="main-content">
+      <h3>
+        <a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive map of life expectancy by commuting zone</h3>
+    </section>
+
+    <div id="tooltip" class="hidden"></div>
+    
+    <!-- Map and chart of life expectancy -->
+    <script src="javascripts/map.js">
+      // Map and chart
+    </script>
+
+    </div>
+  </div>
+
+  <!-- Table of similar areas-->
+  <div id="wrapper">
+
+    <h1>Health metrics by similar locations</h1>
+
+    <div class="demo">
+      <p>Enter your city and state to see the health metrics of the 20 most similar areas:</p>
+      <div class="select-state">
+      <label for="select-state">State:</label>
+      <select id="select-state" class="contacts" placeholder="Enter state..."></select>
+    </div>
+
+    <div class="select-city">
+      <label for="select-city">City:</label>
+      <select id="select-city" class="contacts" placeholder="Enter city..."></select>
+    </div>
+
+    <script src= "javascripts/table-selector.js">
+      // Table selector
+    </script>
+
+    </div>
+  </div>
+
+  <!-- I need this otherwise I get an error, but why? -->
+  <script src="packages/d3-jetpack.js"></script>
+
+  <script src="javascripts/table.js">
+    // Table 
+  </script>
+
+  </div>	
+
+</body>
+</html>

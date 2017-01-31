@@ -1,0 +1,148 @@
+/* Custom CSS Styling */
+
+body h1 p { font-family: 'Helvetica Neue', Helvetica; font-weight: 300; padding: 20px;}
+
+.cz {
+  stroke: white;
+  stroke-width: .5px;
+  stroke-linejoin: round;
+}
+
+.state {
+  fill: none;
+  stroke: white;
+  stroke-width: .8px;
+  stroke-linejoin: round;
+}
+
+#tooltip{
+  position: absolute;
+  z-index: 2;
+  background: white; /* gba(0,153,76,0.8); */
+  width:150px;
+  height:100px;
+  color:black;
+  font-size: 15px;
+  padding:5px;
+  top:-150px;
+  left:-150px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#tooltip svg {
+	border-top: 0;
+	margin-left: -5px;
+	margin-top: 7px;
+}
+
+#tooltip.hidden {
+	display: none;
+}
+
+#le_chart {
+  width: 20%;
+  margin: 0 auto; 
+  padding: 50px;
+}
+
+#le_chart_svg {
+  z-index: 12;
+}
+
+table { 
+  width: 80%;
+  margin: 0 auto;
+}
+
+th { 
+  text-align: center; 
+  font-weight: bold;
+} 
+
+th, td { 
+  padding: 0 1em 0.5ex 0;
+  f 
+}
+
+td {
+  font-weight: 400;
+}
+
+#selected_tr {
+  font-style: italic;
+  background-color: grey;
+}
+
+td.title { 
+  text-align: left; 
+  padding: 0 0 0 1em;
+} 
+
+th.center, td.center { text-align: center; }
+
+thead {
+ font-family: "Lucida Console", Monaco, monospace; 
+}
+
+.x-axis .y-axis {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+th.num, td.num { 
+  text-align: right; 
+  font-family: "Lucida Console", Monaco, monospace; 
+  }	 
+
+#buttons {
+  z-index: 2;
+  background: white;
+  border-radius: 10px;
+}
+
+.button {
+  z-index: 4;
+  width: 80px;
+  height: 30px;
+  pointer-events: visiblePainted;
+  text-anchor: middle;
+  font-size: 30px;
+  fill: #eee;
+  stroke: black; 
+  stroke-width: 2px;
+
+}
+
+.button-labels {
+  z-index: 3;
+  fill: black;
+  font-size: 20px;
+  font-style: bold;
+  font-weight: 500;
+  text-anchor: middle;
+  alignment-baseline: middle;
+  pointer-events: none;
+}
+
+.selected {
+  fill: #8e8e8e;
+}
+
+.select-state {
+   overflow: auto;
+}
+
+.quartile-text  {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.chart-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#wrapper {
+  width: 70%;
+  z-index: 5;
+}

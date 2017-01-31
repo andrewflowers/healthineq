@@ -132,6 +132,7 @@ cz_le_metrics <- read_csv("../health_ineq_data/health_ineq_online_table_6.csv")
 
 cz_health_demo_le_data <- cz_health_and_demo %>% 
   left_join(cz_le_metrics %>% 
-              select(-c(2:6)), by = "cz")
+              select(-c(2:6)), by = "cz") %>% 
+  mutate(puninsured2010 = puninsured2010/100)
 
 write_csv(cz_health_demo_le_data, "../gh-pages/data/cz_health_demo_le_data.csv")
