@@ -30,7 +30,7 @@ function highlight_cz_selection() {
         .style({'stroke-width':'5px','stroke':'black'});
 }
 
-function dehilight_cz_selection() {
+function dehighlight_cz_selection() {
 
   d3.selectAll(".cz")
     .filter(function(d) {
@@ -65,6 +65,24 @@ var projection = d3.geo.albersUsa()
 
 var path = d3.geo.path().
   projection(projection);
+
+
+// Create selection text element
+var selection_svg = d3.select("body")
+  .append("svg")
+    .attr("width", map_width)
+    .attr("height", map_height / 16)
+  .append("text")
+    .text("Your selected area is " + current_selection)
+    .attr("id", "selection-text")
+    .attr("x", map_width / 2)
+    .attr("y", map_height / 32);
+
+function update_selection_text() {
+  d3.select("#selection-text")
+    .transition().duration(100)
+    .text("Your selected area is " + current_selection);
+}
 
 // Create map svg element
 var svg = d3.select("body")
@@ -141,18 +159,17 @@ function draw_chart(selection) {
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
-    // FIX: text is not appearing
+    // Chart title
     svg.append("g")
         .attr("class", "y-axis")
         .call(yAxis)
       .append("text")
+        .attr("id", "chart-title")
         .attr("class", "chart-text")
         .attr("y", -10)
-        .attr("x", width * (2/3))
+        .attr("x", width / 2)
         .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .style("font-weight", "bold")
-        .text("Life expectancy");
+        .text("Life expectancy for " + current_selection);
 
     var quartile = svg.selectAll(".quartile")
         .data(le_data)
@@ -176,9 +193,9 @@ function draw_chart(selection) {
     quartile.append("text")
         .attr("class", "quartile-text")
         .attr("x", function(d) { if (d.sex == 'm') {
-                    return x0(d.quartile) - 3;
+                    return x0(d.quartile) + 4;
                   } else if (d.sex == 'f'){
-                    return x0(d.quartile) + 20;
+                    return x0(d.quartile) + 35;
                   }
                 })
         .attr("y", function(d) { return y(d.le) - 2; })
@@ -272,15 +289,18 @@ function update_chart() {
   quartile.append("text")
       .attr("class", "quartile-text")
       .attr("x", function(d) { if (d.sex == 'm') {
-                  return x0(d.quartile) - 3;
+                  return x0(d.quartile) + 4;
                 } else if (d.sex == 'f'){
-                  return x0(d.quartile) + 20;
+                  return x0(d.quartile) + 35;
                 }
               })
       .attr("y", function(d) { return y(d.le) - 2; })
       .style("font-size","15px")
       .style("text-anchor", "middle")
       .text(function(d) { return Math.round(parseFloat(d.le)*10)/10; });
+
+  d3.select("#chart-title")
+    .text("Life expectancy for " + current_selection);
 }
 
 function return_quartile() {
@@ -320,11 +340,12 @@ var hover = function(d) {
 
 var click = function(d) {
 
-    dehilight_cz_selection();
+    dehighlight_cz_selection();
 
     update_state(d.properties.stateabbrv);
     update_cz(d.properties.czname);
     update_current_selection(current_cz_selection + ", " + current_state_selection);
+    update_selection_text();
 
     if (current_cz_selection.length) {
       update_table();
