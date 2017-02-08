@@ -1,23 +1,43 @@
 // Map and chart
 
 // Try to geo-locate based on user later
-var default_cz_selection = "Johnson City", 
+var default_cz_selection = "Johnson City",
   default_state_selection = "TN",
-  current_cz_selection = default_cz_selection, 
+  current_cz_selection = default_cz_selection,
   current_state_selection = default_state_selection,
   current_selection = current_cz_selection + ", " + current_state_selection;
 
 function update_cz(cz_selection){
-    current_cz_selection = cz_selection;  
+    current_cz_selection = cz_selection;
 }
 
 function update_state(state_selection){
-    current_state_selection = state_selection;  
+    current_state_selection = state_selection;
 }
 
 function update_current_selection(selected_location){
     current_selection = selected_location;
     console.log("The selection has been updated to: " + current_selection);
+}
+
+function highlight_cz_selection() {
+
+  d3.selectAll(".cz")
+    .filter(function(d) {
+      return d.properties.czname == current_cz_selection & d.properties.stateabbrv == current_state_selection;
+    })
+    .transition().duration(300)
+        .style({'stroke-width':'5px','stroke':'black'});
+}
+
+function dehilight_cz_selection() {
+
+  d3.selectAll(".cz")
+    .filter(function(d) {
+      return d.properties.czname == current_cz_selection & d.properties.stateabbrv == current_state_selection;
+    })
+    .transition().duration(300)
+        .style({'stroke-width':'0.5px','stroke':'black'});
 }
 
 var commuting_zones, states, color; // NOTE: need to change color to be map_color
@@ -37,7 +57,7 @@ update_le_selection(default_le_type, default_le_quartile, default_le_sex);
 
 // Map specifications
 var map_width = 1500, map_height = 800,
-    chart_width = 500, chart_height = 300; 
+    chart_width = 500, chart_height = 300;
 
 var projection = d3.geo.albersUsa()
     .scale([map_width])
@@ -144,9 +164,9 @@ function draw_chart(selection) {
       .enter().append("rect")
         .attr("width", bar_width)
         .attr("x", function(d) { if (d.sex == 'm') {
-                    return x0(d.quartile) - 10; 
+                    return x0(d.quartile) - 10;
                   } else if (d.sex == 'f'){
-                    return x0(d.quartile) + 20; 
+                    return x0(d.quartile) + 20;
                   }
                 })
         .attr("y", function(d) { return y(d.le); })
@@ -156,9 +176,9 @@ function draw_chart(selection) {
     quartile.append("text")
         .attr("class", "quartile-text")
         .attr("x", function(d) { if (d.sex == 'm') {
-                    return x0(d.quartile) - 3; 
+                    return x0(d.quartile) - 3;
                   } else if (d.sex == 'f'){
-                    return x0(d.quartile) + 20; 
+                    return x0(d.quartile) + 20;
                   }
                 })
         .attr("y", function(d) { return y(d.le) - 2; })
@@ -229,7 +249,7 @@ function update_chart() {
 
   x0.domain(["Q1", "Q2", "Q3", "Q4"]);
   y.domain([le_min, le_max]); // NOTE: Should I fix this?
-  
+
   var quartile = d3.select("#le_chart_svg")
     .selectAll(".quartile")
     .data(le_data);
@@ -238,9 +258,9 @@ function update_chart() {
       .data(le_data)
       .attr("width", bar_width)
         .attr("x", function(d) { if (d.sex == 'm') {
-                    return x0(d.quartile) - 10; 
+                    return x0(d.quartile) - 10;
                   } else if (d.sex == 'f'){
-                    return x0(d.quartile) + 20; 
+                    return x0(d.quartile) + 20;
                   }
                 })
       .attr("y", function(d) { return y(d.le); })
@@ -252,9 +272,9 @@ function update_chart() {
   quartile.append("text")
       .attr("class", "quartile-text")
       .attr("x", function(d) { if (d.sex == 'm') {
-                  return x0(d.quartile) - 3; 
+                  return x0(d.quartile) - 3;
                 } else if (d.sex == 'f'){
-                  return x0(d.quartile) + 20; 
+                  return x0(d.quartile) + 20;
                 }
               })
       .attr("y", function(d) { return y(d.le) - 2; })
@@ -277,14 +297,14 @@ function return_quartile() {
 
 // Hover and click functions
 var hover = function(d) {
-    
+
     d3.select("#tooltip").classed("hidden", false);
 
     var div = document.getElementById('tooltip');
-    div.style.left = event.pageX -200 +'px';
-    div.style.top = event.pageY -200 + 'px';
+    div.style.left = event.pageX -200 +'px'; // NOTE: this is hard coded and needs to change
+    div.style.top = event.pageY -200 + 'px'; // NOTE: this is hard coded and needs to change
     if (d.properties.czname) {
-      div.innerHTML = 'In the ' + 
+      div.innerHTML = 'In the ' +
             d.properties.czname +
             ' area, life expectancy for ' +
             (le_sex == "M" ? ' men ' : ' women ') + ' in the ' +
@@ -293,24 +313,30 @@ var hover = function(d) {
           } else {
             div.innerHTML = 'No data because population is less than 25,000.';
           }
-    
+
     d3.select(this.parentNode.appendChild(this)).transition().duration(300)
         .style({'stroke-width':'1.3px','stroke':'black'});
   };
 
 var click = function(d) {
 
+    dehilight_cz_selection();
+
     update_state(d.properties.stateabbrv);
     update_cz(d.properties.czname);
     update_current_selection(current_cz_selection + ", " + current_state_selection);
-    
+
     if (current_cz_selection.length) {
       update_table();
       update_chart();
     }
 
+    /*
     d3.select(this.parentNode.appendChild(this)).transition().duration(300)
         .style({'stroke-width':'3px','stroke':'black'});
+    */
+
+    highlight_cz_selection();
   };
 
 // Load geo data and create map
@@ -332,7 +358,7 @@ d3.json("data/cz_and_states_data.json", function(error, data) {
       .enter()
       .append("path")
       .attr("d", path)
-      .attr("fill", function(d) { 
+      .attr("fill", function(d) {
             var value = d.properties[current_le_selection];
 
             if (value) {
@@ -343,10 +369,14 @@ d3.json("data/cz_and_states_data.json", function(error, data) {
        })
       .attr("class", "cz")
       .on("mouseover", hover)
-      .on("mouseout", function() { 
+      .on("mouseout", function() {
+
         d3.select("#tooltip").classed("hidden", true);
+
         d3.select(this).transition().duration(300)
-        .style({'stroke-width':'.5px','stroke':'white'})
+          .style({'stroke-width':'.5px','stroke':'white'});
+
+        highlight_cz_selection();
       })
       .on("click", click);
 
@@ -380,9 +410,12 @@ d3.json("data/cz_and_states_data.json", function(error, data) {
     .attr("font-weight", "bold")
     .attr("x", function(d, i){ return (map_width / 4) + (i*ls_w) + 22;})
     .text(function(d, i){ return legend_labels[i]; });
-  
+
   // Initalize chart
-  draw_chart(chart);     
+  draw_chart(chart);
+
+  // Highlight default selection
+  highlight_cz_selection();
 
 });
 
@@ -403,7 +436,7 @@ navigator.geolocation.getCurrentPosition(function(d) {
   });
 
 
-// Create map buttons 
+// Create map buttons
 var button_width = 80, button_height = 30,
 button_vert_gap = 35, button_horz_gap = 5,
 sex_quartile_gap = 50;
@@ -456,7 +489,7 @@ function sex_button_click(d, i) {
     } else if ((d3.select(this).classed("female"))){
       update_le_selection(le_type, le_quartile, "F");
         update_map()
-        update_table()        
+        update_table()
     }
   };
 
@@ -539,23 +572,23 @@ function quartile_button_click(d, i) {
     } else if ((d3.select(this).classed("q2"))){
       update_le_selection(le_type, 2, le_sex);
         update_map()
-        update_table()        
+        update_table()
     } else if ((d3.select(this).classed("q3"))){
       update_le_selection(le_type, 3, le_sex);
         update_map()
-        update_table()        
+        update_table()
     } else if ((d3.select(this).classed("q4"))){
       update_le_selection(le_type, 4, le_sex);
         update_map()
-        update_table()        
+        update_table()
     }
   };
 
 function update_map() {
 
   svg.selectAll("path")
-    .transition(200)  
-    .attr("fill", function(d) { 
+    .transition(200)
+    .attr("fill", function(d) {
           var value = d.properties[current_le_selection];
           console.log("The values being colored are " + value);
 
