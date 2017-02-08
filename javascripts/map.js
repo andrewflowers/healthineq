@@ -40,7 +40,7 @@ function dehighlight_cz_selection() {
         .style({'stroke-width':'0.5px','stroke':'black'});
 }
 
-var commuting_zones, states, color; // NOTE: need to change color to be map_color
+var commuting_zones, states, color, nat_le_avg; // NOTE: need to change color to be map_color
 
 // Life expectancy variables and methods
 var default_le_type = "raceadj", default_le_quartile = 1, default_le_sex = "M",
@@ -65,7 +65,6 @@ var projection = d3.geo.albersUsa()
 
 var path = d3.geo.path().
   projection(projection);
-
 
 // Create selection text element
 var selection_svg = d3.select("body")
@@ -106,6 +105,18 @@ var bar_width = 30;
 // Draw life expectancy chart
 function draw_chart(selection) {
 
+  // Calculate national averages
+  nat_le_avg = [
+  { quartile: 'Q1', sex: 'f', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q1_F;})},
+  { quartile: 'Q2', sex: 'f', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q2_F;})},
+  { quartile: 'Q3', sex: 'f', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q3_F;})},
+  { quartile: 'Q4', sex: 'f', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q4_F;})},
+  { quartile: 'Q1', sex: 'm', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q1_M;})},
+  { quartile: 'Q2', sex: 'm', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q2_M;})},
+  { quartile: 'Q3', sex: 'm', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q3_M;})},
+  { quartile: 'Q4', sex: 'm', le: d3.mean(commuting_zones, function(d) { return d.properties.le_raceadj_q4_M;})}
+              ];
+
   var d = commuting_zones.filter(function(d) {
     return d.properties.czname == current_cz_selection & d.properties.stateabbrv == current_state_selection;
   })[0];
@@ -142,7 +153,6 @@ function draw_chart(selection) {
         .scale(y)
         .orient("left")
         .ticks(5);
-        //.tickFormat(d3.format(".2s"));
 
     var svg = selection.append("svg")
         .attr("id", "le_chart_svg")
@@ -203,6 +213,35 @@ function draw_chart(selection) {
         .style("text-anchor", "middle")
         .text(function(d) { return Math.round(parseFloat(d.le)*10)/10; });
 
+  // Average LE lines
+  var line_start = 40;
+
+  var lineData = [ [{ "x": line_start,   "y": nat_le_avg[4].le},  { "x": line_start + bar_width,  "y": nat_le_avg[4].le}],
+                  [{ "x": line_start + bar_width,   "y": nat_le_avg[0].le},  { "x": line_start + bar_width * 2,  "y": nat_le_avg[0].le}],
+                  [{ "x": line_start + 100,   "y": nat_le_avg[5].le},  { "x": line_start + 100 + bar_width,  "y": nat_le_avg[5].le}],
+                  [{ "x": line_start + 100 + bar_width,   "y": nat_le_avg[1].le},  { "x": line_start + 100 + bar_width * 2,  "y": nat_le_avg[1].le}],
+                  [{ "x": line_start + 200,   "y": nat_le_avg[6].le},  { "x": line_start + 200 + bar_width,  "y": nat_le_avg[6].le}],
+                  [{ "x": line_start + 200 + bar_width,   "y": nat_le_avg[2].le},  { "x": line_start + 200 + bar_width * 2,  "y": nat_le_avg[2].le}],
+                  [{ "x": line_start + 300,   "y": nat_le_avg[7].le},  { "x": line_start + 300 + bar_width,  "y": nat_le_avg[7].le}],
+                  [{ "x": line_start + 300 + bar_width,   "y": nat_le_avg[3].le},  { "x": line_start + 300 + bar_width * 2,  "y": nat_le_avg[3].le}]
+  ];
+
+  var lineFunction = d3.svg.line()
+                  .x(function(d) { return d.x; })
+                  .y(function(d) { return y(d.y); })
+                  .interpolate("linear");
+
+  quartile.selectAll(".line")
+      .data(lineData)
+      .enter().append("path")
+        .attr("class", "line")
+        .attr("d", lineFunction)
+      .attr("stroke", "black")
+      .attr("stroke-width", 2)
+      .style("stroke-dasharray","5,5")
+      .attr("fill", "none");
+
+  // Chart legend
   var legend = svg.selectAll(".legend")
         .data(['F', 'M'])
       .enter().append("g")
@@ -514,65 +553,91 @@ function sex_button_click(d, i) {
     }
   };
 
-// Income quartile buttons
-var quartile_buttons = svg.select("#buttons")
-.append("g")
-  .attr("id", "quartile-controls");
+// Income quartile annotations
 
-quartile_buttons.append("text")
-  .attr("class", "button-headers")
-  .attr("x", map_width * .80)
-  .attr("y", (map_height * .5) + button_vert_gap)
-  //.text("Income \nquartiles:");
+svg.select("#buttons")
+  .append("text")
+    .attr("id", "quartile-notes")
+    .attr("x", map_width * .85)
+    .attr("y", map_height * .58)
+    .attr("text-anchor", "right")
+    .text("Income quartiles:");
+
+// Income quartile buttons
+var quartile_buttons = svg.select("#buttons").append("g");
 
 // Q1
 quartile_buttons.append("rect")
   .attr("class", "button q1")
   .attr("x", map_width * .85)
-  .attr("y", (map_height * .5) + button_vert_gap)
+  .attr("y", (map_height * .55) + button_vert_gap)
   .classed("selected", true); // NOTE: set because of default_le_quartile = 1
 
 quartile_buttons.append("text")
   .attr("class", "button-labels")
   .text("Q1")
   .attr("x", (map_width * .85) + button_width * 0.5)
-  .attr("y", (map_height * .5) + (button_vert_gap + button_height * 0.5));
+  .attr("y", (map_height * .55) + (button_vert_gap + button_height * 0.5));
+
+quartile_buttons.append("text")
+  .attr("class", "quartile-dollars")
+  .text("$17,000")
+  .attr("x", (map_width * .88) + button_width * 0.5)
+  .attr("y", (map_height * .55) + (button_vert_gap + button_height * 0.5));
 
 // Q2
 quartile_buttons.append("rect")
   .attr("class", "button q2")
   .attr("x", map_width * .85)
-  .attr("y", (map_height * .5) + (button_vert_gap * 2));
+  .attr("y", (map_height * .55) + (button_vert_gap * 2));
 
 quartile_buttons.append("text")
   .attr("class", "button-labels")
   .text("Q2")
   .attr("x", (map_width * .85) + button_width * 0.5)
-  .attr("y", (map_height * .5) + (button_vert_gap * 2 + button_height * 0.5));
+  .attr("y", (map_height * .55) + (button_vert_gap * 2 + button_height * 0.5));
+
+quartile_buttons.append("text")
+  .attr("class", "quartile-dollars")
+  .text("$40,000")
+  .attr("x", (map_width * .88) + button_width * 0.5)
+  .attr("y", (map_height * .55) + (button_vert_gap * 2 + button_height * 0.5));
 
 // Q3
 quartile_buttons.append("rect")
   .attr("class", "button q3")
   .attr("x", map_width * .85)
-  .attr("y", (map_height * .5) + (button_vert_gap * 3));
+  .attr("y", (map_height * .55) + (button_vert_gap * 3));
 
 quartile_buttons.append("text")
   .attr("class", "button-labels")
   .text("Q3")
   .attr("x", (map_width * .85) + button_width * 0.5)
-  .attr("y", (map_height * .5) + (button_vert_gap * 3 + button_height * 0.5));
+  .attr("y", (map_height * .55) + (button_vert_gap * 3 + button_height * 0.5));
+
+quartile_buttons.append("text")
+  .attr("class", "quartile-dollars")
+  .text("$74,000")
+  .attr("x", (map_width * .88) + button_width * 0.5)
+  .attr("y", (map_height * .55) + (button_vert_gap * 3 + button_height * 0.5));  
 
 // Q4
 quartile_buttons.append("rect")
   .attr("class", "button q4")
   .attr("x", map_width * .85)
-  .attr("y", (map_height * .5) + (button_vert_gap * 4));
+  .attr("y", (map_height * .55) + (button_vert_gap * 4));
 
 quartile_buttons.append("text")
   .attr("class", "button-labels")
   .text("Q4")
   .attr("x", (map_width * .85) + button_width * 0.5)
-  .attr("y", (map_height * .5) + (button_vert_gap * 4 + button_height * 0.5));
+  .attr("y", (map_height * .55) + (button_vert_gap * 4 + button_height * 0.5));
+
+quartile_buttons.append("text")
+  .attr("class", "quartile-dollars")
+  .text("$146,000")
+  .attr("x", (map_width * .88) + button_width * 0.5)
+  .attr("y", (map_height * .55) + (button_vert_gap * 4 + button_height * 0.5));  
 
 quartile_buttons.selectAll(".button")
   .on("click", quartile_button_click);
