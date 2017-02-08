@@ -28,27 +28,27 @@ function calc_similarity() {
 
 // Table column headers
 var columns = [
+    { head: 'Similarity', cl: 'num', html: ƒ('similarity_rank', d3.format('.0f')) },
     { head: 'Location', cl: 'title', html: ƒ('location'), var: 'location' },
     { head: 'Life expectancy', cl: 'num', html: ƒ(current_le_selection, d3.format('.1f')), var: current_le_selection, raw: ƒ(current_le_selection) },
     { head: 'Uninsured', cl: 'num', html: ƒ('puninsured2010', d3.format('.1%')), var: "puninsured2010", raw: ƒ('puninsured2010', d3.format('.5f'))},
     { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1', d3.format('.1%')), var: "cur_smoke_q1", raw: ƒ('cur_smoke_q1', d3.format('.5f'))},
     { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1', d3.format('.1%')), var:  "bmi_obese_q1", raw: ƒ('bmi_obese_q1', d3.format('.5f'))},
     { head: 'Exercised', cl: 'num', html: ƒ('exercise_any_q1', d3.format('.1%')), var: "exercise_any_q1", raw: ƒ('exercise_any_q1', d3.format('.5f'))},
-    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))},
-    //{ head: 'Similarity Score', cl: 'num', html: ƒ('similarity', d3.format('.3f')) }
+    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))}
 ];
 
 function update_table_columns() {
 
     columns = [
+    { head: 'Similarity', cl: 'num', html: ƒ('similarity_rank', d3.format('.0f')) },
     { head: 'Location', cl: 'title', html: ƒ('location'), var: 'location' },
     { head: 'Life expectancy', cl: 'num', html: ƒ(current_le_selection, d3.format('.1f')), var: current_le_selection, raw: ƒ(current_le_selection) },
     { head: 'Uninsured', cl: 'num', html: ƒ('puninsured2010', d3.format('.1%')), var: "puninsured2010", raw: ƒ('puninsured2010', d3.format('.5f'))},
     { head: 'Smoking', cl: 'num', html: ƒ('cur_smoke_q1', d3.format('.1%')), var: "cur_smoke_q1", raw: ƒ('cur_smoke_q1', d3.format('.5f'))},
     { head: 'Obesity', cl: 'num', html: ƒ('bmi_obese_q1', d3.format('.1%')), var:  "bmi_obese_q1", raw: ƒ('bmi_obese_q1', d3.format('.5f'))},
     { head: 'Exercised', cl: 'num', html: ƒ('exercise_any_q1', d3.format('.1%')), var: "exercise_any_q1", raw: ƒ('exercise_any_q1', d3.format('.5f'))},
-    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))},
-    //{ head: 'Similarity Score', cl: 'num', html: ƒ('similarity', d3.format('.3f')) }
+    { head: 'Poverty Rate', cl: 'num', html: ƒ('poor_share', d3.format('.1%')), var: "poor_share", raw: ƒ('poor_share', d3.format('.5f'))}
     ];
 }
 
@@ -76,6 +76,10 @@ d3.csv("data/cz_health_demo_le_data.csv", function(data) {
           return i < num_cz_table;  
         });
 
+    subset_health_data.forEach(function(cz, i){
+        cz.similarity_rank = i;
+    })
+
     d3.select("body").append("div")
         .attr("id", "container");
 
@@ -97,6 +101,11 @@ d3.csv("data/cz_health_demo_le_data.csv", function(data) {
         .data(selected_health_data)
         .enter()
         .append('tr');
+
+    table.select("#selected_tr")
+        .append("td")
+            .attr("class", "sim-rank");
+            //.html(location);                
 
     table.select("#selected_tr")
         .append("td")
@@ -186,6 +195,10 @@ function update_table() {
     }).filter(function(d, i) {
       return i < num_cz_table;  
     });
+
+    subset_health_data.forEach(function(cz, i){
+        cz.similarity_rank = i;
+    })
 
     selected_health_data = get_selected_data(current_selection)[0];
 
