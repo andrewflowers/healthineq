@@ -564,7 +564,7 @@ svg.select("#buttons")
     .text("Income quartiles:");
 
 // Income quartile buttons
-var quartile_buttons = svg.select("#buttons").append("g");
+var quartile_buttons = svg.select("#buttons").append("g").attr("id", "quartile-controls");
 
 // Q1
 quartile_buttons.append("rect")
@@ -676,7 +676,7 @@ function update_map() {
     .transition(200)
     .attr("fill", function(d) {
           var value = d.properties[current_le_selection];
-          console.log("The values being colored are " + value);
+          // console.log("The values being colored are " + value);
 
           if (value) {
             return color(value);
