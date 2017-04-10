@@ -93,8 +93,9 @@ var svg = d3.select("body")
 var chart = d3.select("body")
   .append("div")
     .attr("id", "le_chart")
-    .attr("width", chart_width)
-    .attr("height", chart_height);
+    .attr("class", "chart-map-container");
+    //.attr("width", chart_width)
+    //.attr("height", chart_height);
 
 // Life expectancy range
 var le_min = 70, le_max = 95;
@@ -389,6 +390,7 @@ var click = function(d) {
     if (current_cz_selection.length) {
       update_table();
       update_chart();
+
     }
 
     /*
@@ -397,6 +399,9 @@ var click = function(d) {
     */
 
     highlight_cz_selection();
+
+    geocode_from_CZ_and_update_map();
+    
   };
 
 // Load geo data and create map
@@ -480,14 +485,18 @@ d3.json("data/cz_and_states_data.json", function(error, data) {
 });
 
 // Find geolocation of user
+var geolocation;
+
 navigator.geolocation.getCurrentPosition(function(d) {
-    console.log(d);
+    geolocation = [d.coords.longitude, d.coords.latitude];
+
+    console.log(geolocation);
 
     svg.append("circle")
     .attr({
       r:7,
       transform: function() {
-      var coord = projection([d.coords.longitude,d.coords.latitude])
+      var coord = projection([d.coords.longitude, d.coords.latitude])
           return "translate("+coord+")"
       },
       fill:"CornflowerBlue"

@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2Iqv7LmjzlJMJSBw7pQcc6qmOLnk9lA&callback=initMap">
+    </script>
     <script src="packages/jquery.min.js"></script>
     <script src="packages/d3-jetpack.js"></script>
     <script src="packages/selectize.js"></script>
     <script src="packages/d3.v3.js" charset="utf-8"></script>
     <script src="packages/topojson.v1.min.js"></script>
     <script src="packages/d3-queue.v2.min.js"></script>
+
 
     <!-- link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'-->
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
@@ -53,6 +57,54 @@
     </div>
   </div>
 
+  <div id="google-map" class = "chart-map-container">
+    <script type="text/javascript">
+      
+      var lat, lng, geocoder, google_map, google_map_marker, center;
+
+      // Create the Google Map
+      // Remove &callback=initMap
+      function initMap(lat = 42.143399599999995, lng = -71.2528944) {
+        
+        var map_center = {lat: lat, lng: lng};
+        
+        google_map = new google.maps.Map(document.getElementById('google-map'), {
+          zoom: 8,
+          center: map_center
+        });
+        
+        google_map_marker = new google.maps.Marker({
+          position: map_center,
+          map: google_map
+        });
+      }
+
+      initMap();
+
+      // Geolocation of selected CZ
+
+      function geocode_from_CZ_and_update_map() {
+          geocoder =  new google.maps.Geocoder()
+
+          geocoder.geocode( { 'address': current_cz_selection + ', ' + current_state_selection}, function(results, status) {
+                
+                if (status == google.maps.GeocoderStatus.OK) {
+                  center = results[0].geometry.location;
+                  lat = results[0].geometry.location.lat();
+                  lng = results[0].geometry.location.lng();
+
+                  google_map.setCenter(center);
+                  console.log({lat, lng});
+
+                } else {
+                  alert("Something got wrong " + status);
+                }
+              });
+      }
+
+    </script>
+  </div>
+
   <!-- Table of similar areas-->
   <div id="wrapper">
 
@@ -82,9 +134,7 @@
 
   <script src="javascripts/table.js">
     // Table 
-  </script>
-
-  </div>	
+  </script>	
 
 </body>
 </html>
