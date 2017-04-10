@@ -94,6 +94,7 @@
                   lng = results[0].geometry.location.lng();
 
                   google_map.setCenter(center);
+                  google_map_marker.setPosition(center);
                   console.log({lat, lng});
 
                 } else {
