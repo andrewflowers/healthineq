@@ -183,3 +183,9 @@ th.num, td.num {
   /*margin: 10px 10px 10px 10px;*/
 }
 
+.input-widget {
+  display: inline-block;
+  width: 40%;
+  padding: 0 20px 0 20px;
+}
+

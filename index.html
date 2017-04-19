@@ -9,12 +9,11 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAd2Iqv7LmjzlJMJSBw7pQcc6qmOLnk9lA&callback=initMap">
     </script>
     <script src="packages/jquery.min.js"></script>
-    <script src="packages/d3-jetpack.js"></script>
     <script src="packages/selectize.js"></script>
     <script src="packages/d3.v3.js" charset="utf-8"></script>
     <script src="packages/topojson.v1.min.js"></script>
     <script src="packages/d3-queue.v2.min.js"></script>
-
+    <script src="packages/awesomplete.js"></script>
 
     <!-- link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'-->
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
@@ -23,8 +22,9 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/andrew.css" media="screen">
+    <link rel="stylesheet" href="css/awesomplete.css">
 
-    <title>Health Inequality Data Visualizations, by Andrew Flowers</title>
+    <title>The Rich Live Longer</title>
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,21 +35,28 @@
 <body>
   <header>
     <div class="inner">
-      <h2>Health inequality data visualizations</h2>
+      <h2>The Rich Live Longer</h2>
+      <h2><i>Life expectancy by income</i></h2>
     </div>
   </header>
 
   <div id="content-wrapper">
     <div class="inner clearfix">
 
-    <section id="main-content">
-      <h3>
-        <a id="map" class="anchor" href="#map" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive map of life expectancy by commuting zone</h3>
-    </section>
+    <div id="input-widget">
+
+      <label>Change location:</label>
+
+      <input id="myinput" label="test"/>
+
+      <script type="text/javascript" src="javascripts/cz-selector.js">
+        // Commuting zone (cz) selector widget
+      </script>
+
+    </div>
 
     <div id="tooltip" class="hidden"></div>
     
-    <!-- Map and chart of life expectancy -->
     <script src="javascripts/map.js">
       // Map and chart
     </script>
@@ -58,76 +65,9 @@
   </div>
 
   <div id="google-map" class = "chart-map-container">
-    <script type="text/javascript">
-      
-      var lat, lng, geocoder, google_map, google_map_marker, center;
-
-      // Create the Google Map
-      // Remove &callback=initMap
-      function initMap(lat = 42.143399599999995, lng = -71.2528944) {
-        
-        var map_center = {lat: lat, lng: lng};
-        
-        google_map = new google.maps.Map(document.getElementById('google-map'), {
-          zoom: 8,
-          center: map_center
-        });
-        
-        google_map_marker = new google.maps.Marker({
-          position: map_center,
-          map: google_map
-        });
-      }
-
-      initMap();
-
-      // Geolocation of selected CZ
-
-      function geocode_from_CZ_and_update_map() {
-          geocoder =  new google.maps.Geocoder()
-
-          geocoder.geocode( { 'address': current_cz_selection + ', ' + current_state_selection}, function(results, status) {
-                
-                if (status == google.maps.GeocoderStatus.OK) {
-                  center = results[0].geometry.location;
-                  lat = results[0].geometry.location.lat();
-                  lng = results[0].geometry.location.lng();
-
-                  google_map.setCenter(center);
-                  google_map_marker.setPosition(center);
-                  console.log({lat, lng});
-
-                } else {
-                  alert("Something got wrong " + status);
-                }
-              });
-      }
-
+    <script type="text/javascript" src="javascripts/google-map.js">
+      // Google map of commuting zone
     </script>
-  </div>
-
-  <!-- Table of similar areas-->
-  <div id="wrapper">
-
-    <h1>Health metrics by similar locations</h1>
-
-    <div class="demo">
-      <p>Enter your city and state to see the health metrics of the 20 most similar areas:</p>
-      <div class="select-state">
-      <label for="select-state">State:</label>
-      <select id="select-state" class="contacts" placeholder="Enter state..."></select>
-    </div>
-
-    <div class="select-city">
-      <label for="select-city">City:</label>
-      <select id="select-city" class="contacts" placeholder="Enter city..."></select>
-    </div>
-
-    <script src= "javascripts/table-selector.js">
-      // Table selector
-    </script>
-
-    </div>
   </div>
 
   <!-- I need this otherwise I get an error, but why? -->

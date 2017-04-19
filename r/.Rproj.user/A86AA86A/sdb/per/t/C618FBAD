@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Names of commuting zones and states\n\nlibrary(tidyverse)\nlibrary(haven)\n\ncz_characteristics <- read_csv(\"../health_ineq_data/health_ineq_online_table_10.csv\")\n\ncz_names <- cz_characteristics %>% \n  select(czname, stateabbrv)\n\ndata <- cz_names %>% \n  rename(state = stateabbrv, city = czname) %>% \n  mutate(cz_and_state = paste(city, state, sep = \", \")) \n\ndata %>%\n  write_csv(\"../data/cz_names_and_states.csv\")\n\ndata %>%\n  write_csv(\"../gh-pages/cz_names_and_states.csv\")",
+    "created" : 1490966341373.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "449102658",
+    "id" : "C618FBAD",
+    "lastKnownWriteTime" : 1491865880,
+    "last_content_update" : 1491865880718,
+    "path" : "~/repos/healthineq/r/cz_names_and_states.R",
+    "project_path" : "cz_names_and_states.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
