@@ -1,742 +1,742 @@
-city,state
-Johnson City,TN
-Morristown,TN
-Middlesborough,TN
-Knoxville,TN
-Winston-Salem,NC
-Martinsville,VA
-Greensboro,NC
-North Wilkesboro,NC
-Galax,VA
-Spartanburg,SC
-Gastonia,NC
-Charlotte,NC
-Boone,NC
-Morganton,NC
-Hickory,NC
-Franklin,NC
-Sylva,NC
-Asheville,NC
-Andrews,NC
-Bennettsville,SC
-Florence,SC
-Fayetteville,NC
-Wilmington,NC
-Rocky Mount,NC
-Raleigh,NC
-Henderson,NC
-Goldsboro,NC
-Jacksonville,NC
-Virginia Beach,VA
-Washington,NC
-South Boston,VA
-Lynchburg,VA
-Richmond,VA
-Newport News,VA
-Roanoke Rapids,NC
-Gulfport,MS
-Laurel,MS
-Hattiesburg,MS
-Kosciusko,MS
-Yazoo City,MS
-Jackson,MS
-McComb,MS
-Brookhaven,MS
-Jena,LA
-Natchez,MS
-Vicksburg,MS
-New Orleans,LA
-Houma,LA
-Baton Rouge,LA
-Alexandria,LA
-Lake Charles,LA
-Lafayette,LA
-Monroe,LA
-Lake Providence,LA
-Magnolia,AR
-Shreveport,LA
-Ruston,LA
-Many,LA
-Crossett,AR
-Pine Bluff,AR
-El Dorado,AR
-Little Rock,AR
-Stuttgart,AR
-Searcy,AR
-Corbin,KY
-Richmond,KY
-West Liberty,KY
-Hazard,KY
-Campbellsville,KY
-Somerset,KY
-Greenwood,MS
-Clarksdale,MS
-Greenville,MS
-Jackson,TN
-Dyersburg,TN
-Lexington,TN
-Tupelo,MS
-Corinth,MS
-New Albany,MS
-Memphis,TN
-West Memphis,AR
-Bowling Green,KY
-Glasgow,KY
-Columbia,TN
-Nashville,TN
-Tullahoma,TN
-Dickson,TN
-Clarksville,TN
-Huntsville,AL
-Gadsden,AL
-Florence,AL
-McMinnville,TN
-Cookeville,TN
-Chattanooga,TN
-Crossville,TN
-Ellijay,GA
-Cleveland,TN
-Rome,GA
-Tampa,FL
-Lakeland,FL
-Sarasota,FL
-Miami,FL
-Port St. Lucie,FL
-Cape Coral,FL
-Palm Bay,FL
-Orlando,FL
-Deltona,FL
-Jacksonville,FL
-Lake City,FL
-Ocala,FL
-Gainesville,FL
-Sumter,SC
-Columbia,SC
-Barnwell,SC
-Charleston,SC
-Greenville,SC
-Augusta,GA
-Washington,GA
-Fitzgerald,GA
-Cordele,GA
-Valdosta,GA
-Waycross,GA
-Brunswick,GA
-Hinesville,GA
-Statesboro,GA
-Savannah,GA
-Macon,GA
-Vidalia,GA
-Milledgeville,GA
-Dublin,GA
-Atlanta,GA
-Griffin,GA
-Athens,GA
-Toccoa,GA
-Gainesville,GA
-Talladega,AL
-LaGrange,GA
-Columbus,GA
-Americus,GA
-Auburn,AL
-Tallahassee,FL
-Panama City,FL
-Bainbridge,GA
-Thomasville,GA
-Albany,GA
-Eufaula,GA
-Dothan,AL
-Meridian,MS
-Columbus,MS
-Starkville,MS
-Jasper,AL
-Birmingham,AL
-Tuscaloosa,AL
-Demopolis,AL
-Pensacola,FL
-Mobile,AL
-Atmore,AL
-Montgomery,AL
-Troy,AL
-Bluefield,VA
-Welch,WV
-Big Stone Gap,VA
-Fredericksburg,VA
-Baltimore,MD
-Colonial Beach,VA
-Washington DC,DC
-Marquette,MI
-Marinette,MI
-Sault Ste. Marie,MI
-Jackson,MI
-Detroit,MI
-Lansing,MI
-Mount Pleasant,MI
-Saginaw,MI
-Big Rapids,MI
-Ludington,MI
-Kalamazoo,MI
-Grand Rapids,MI
-Traverse City,MI
-Petoskey,MI
-Alpena,MI
-Grayling,MI
-Dayton,OH
-Washington Court House,OH
-Wayne,IN
-Cincinnati,OH
-Maysville,KY
-Washington,IN
-Lexington,KY
-Mount Sterling,KY
-Danville,KY
-Elizabethtown,KY
-Louisville,KY
-Madison,IN
-Bardstown,KY
-Owensboro,KY
-Findlay,OH
-Lima,OH
-Toledo,OH
-Defiance,OH
-South Bend,IN
-Concord,IN
-Wayne,IN
-Center,IN
-Muncie,IN
-Fort Wayne,IN
-Indianapolis,IN
-Columbus,IN
-Terre Haute,IN
-Lafayette,IN
-Bloomington,IN
-Evansville,IN
-Olney,IL
-Vincennes,IN
-Gary,IN
-Canton,OH
-Lorain,OH
-Cleveland,OH
-Parkersburg,WV
-Zanesville,OH
-Weirton,OH
-Wheeling,WV
-Scioto,OH
-Athens,OH
-Columbus,OH
-Mansfield,OH
-State College,PA
-Altoona,PA
-Pittsburgh,PA
-Youngstown,OH
-Erie,PA
-Roanoke,VA
-Elkins,WV
-Morgantown,WV
-Buckhannon,WV
-Beckley,WV
-Summersville,WV
-Charleston,WV
-Spencer,WV
-Pikeville,KY
-Huntington,KY
-Harrisonburg,VA
-Staunton,VA
-Hagerstown,PA
-Cumberland,MD
-Winchester,VA
-Charlottesville,VA
-Syracuse,NY
-Oneonta,NY
-Union,NY
-Buffalo,NY
-Elmira,NY
-Olean,NY
-St. Marys,PA
-Watertown,NY
-Plattsburgh,NY
-Amsterdam,NY
-Albany,NY
-Sunbury,PA
-Scranton,PA
-Williamsport,PA
-Allentown,PA
-Reading,PA
-Harrisburg,PA
-Poughkeepsie,NY
-New York City,NY
-Toms River,NJ
-Newark,NJ
-Philadelphia,PA
-Wilmington,DE
-Dover,DE
-Easton,MD
-Chincoteague,VA
-Bangor,ME
-Calais,ME
-Presque Isle,ME
-Portland,ME
-Burlington,VT
-Berlin,VT
-Claremont,VT
-Providence,RI
-Nantucket,MA
-Oak Bluffs,MA
-Boston,MA
-Manchester,NH
-Keene,NH
-Springfield,MA
-Bridgeport,CT
-Pittsfield,MA
-Ashland,WI
-Houghton,MI
-Ironwood,MI
-Rhinelander,WI
-Rice Lake,WI
-Amery,WI
-Hutchinson,MN
-Redwood Falls,MN
-Mankato,MN
-Owatonna,MN
-St. Cloud,MN
-Minneapolis,MN
-Pine City,MN
-Brainerd,MN
-Rochester,MN
-Austin,MN
-Mason City,IA
-Decorah,IA
-Marshalltown,IA
-Waterloo,IA
-Iowa Falls,IA
-Iowa City,IA
-Cedar Rapids,IA
-Ottumwa,IA
-Sheboygan,WI
-Appleton,WI
-Green Bay,WI
-Shawano,WI
-Wausau,WI
-Eau Claire,WI
-La Crosse,WI
-Monroe,WI
-Madison,WI
-Dubuque,IA
-Charleston,IL
-Douglas,IL
-Bloomington,IL
-Decatur,IL
-Burlington,IA
-Galesburg,IL
-Davenport,IL
-Clinton,IA
-Peoria,IL
-Kenosha,WI
-Milwaukee,WI
-Bourbonnais,IL
-Chicago,IL
-Rockford,IL
-Rolla,MO
-Farmington,MO
-St. Louis,MO
-Mexico,MO
-Jacksonville,IL
-Springfield,IL
-Edwardsville,IL
-Quincy,IL
-Mountain Home,AR
-West Plains,MO
-Harrison,AR
-Heber Springs,AR
-Batesville,AR
-Henderson,KY
-Union City,TN
-Paducah,KY
-Murray,KY
-Centralia,IL
-Carbondale,IL
-Harrisburg,IL
-Cape Girardeau,MO
-Poplar Bluff,MO
-Blytheville,AR
-Jonesboro,AR
-Roseau,MN
-Duluth,MN
-West Cook,MN
-International Falls,MN
-Moberly,MO
-Marshall,MO
-Brookfield,MO
-Trenton,MO
-Polk,MO
-Centerville,IA
-Kirksville,MO
-Bismarck,ND
-East Grant,ND
-Linton,ND
-Steele,ND
-Devils Lake,ND
-Carrington,ND
-Turtle Mountain,ND
-Minot,ND
-Rugby,ND
-Ekalaka,SD
-Baker,MT
-Bowman,ND
-Lemmon,ND
-Scobey,MT
-Wolf Point,MT
-Plentywood,MT
-Glasgow,MT
-Glendive,MT
-Dickinson,ND
-Sidney,ND
-Williston,ND
-Brookings,SD
-Madison,SD
-Sioux Falls,SD
-Watertown,SD
-Milbank,MN
-Sisseton,SD
-East Corson,SD
-Mobridge,SD
-Aberdeen,SD
-Bemidji,MN
-Grafton,ND
-Thief River Falls,MN
-Grand Forks,ND
-Fargo,ND
-Lisbon,ND
-Jamestown,ND
-Cooperstown,ND
-Fergus Falls,MN
-Little Falls,MN
-O'Neill,NE
-Ord,NE
-Ainsworth,NE
-Winner,SD
-Yankton,SD
-Mitchell,SD
-Huron,SD
-Parkston,SD
-Chamberlain,SD
-Miller,SD
-Pierre,SD
-Gettysburg,SD
-Willmar,MN
-Marshall,MN
-Sioux Center,IA
-Worthington,MN
-Spencer,IA
-Fairmont,MN
-Storm Lake,IA
-Fort Dodge,IA
-Des Moines,IA
-Creston,IA
-Atlantic,IA
-Carroll,IA
-Rapid City,SD
-Eagle Butte,SD
-Southwest Jackson,SD
-Murdo,SD
-Mission,SD
-Scottsbluff,NE
-Cheyenne,WY
-Torrington,WY
-Gordon,SD
-Norfolk,NE
-Columbus,NE
-Hastings,NE
-York,NE
-Grand Island,NE
-Sioux City,IA
-West Point,NE
-Lincoln,NE
-Nebraska City,NE
-Red Oak,IA
-Omaha,NE
-Sterling,CO
-Ogallala,NE
-Oshkosh,NE
-Valentine,NE
-Broken Bow,NE
-North Platte,NE
-Colorado Springs,CO
-Limon,CO
-Springfield,CO
-Pueblo,CO
-Trinidad,CO
-Burlington,CO
-Oberlin,KS
-Norton,KS
-Phillipsburg,KS
-Colby,KS
-Goodland,KS
-Wano,KS
-McCook,NE
-Kearney,NE
-Lexington,NE
-Salida,CO
-Glenwood Springs,CO
-Granby,CO
-Laramie,WY
-Fort Collins,CO
-Denver,CO
-Pratt,KS
-Coldwater,KS
-Dodge City,KS
-Great Bend,KS
-Hutchinson,KS
-Hays,KS
-Township 11,KS
-Center,KS
-Concordia,KS
-Superior,NE
-Beloit,KS
-Salina,KS
-Hiawatha,KS
-Marysville,KS
-Manhattan,KS
-Topeka,KS
-Wichita,KS
-Newton,KS
-Winfield,KS
-Ottawa,KS
-Emporia,KS
-Bartlesville,KS
-Leavenworth,KS
-Kansas City,MO
-St. Joseph,MO
-Sedalia,MO
-Polk,MO
-Bethany,MO
-Columbia,MO
-Eldon,MO
-Springfield,MO
-Monett,MO
-Joplin,MO
-Center,MO
-Russellville,AR
-Fort Smith,AR
-Muskogee,OK
-Fayetteville,AR
-Stillwater,OK
-Tulsa,OK
-Okmulgee,OK
-Woodward,OK
-Enid,OK
-El Paso,TX
-Alamogordo,NM
-Truth or Consequences,NM
-Deming,NM
-Van Horn,TX
-Roswell,NM
-Santa Rosa,NM
-Hobbs,NM
-Lubbock,TX
-Clovis,NM
-Littlefield,TX
-Amarillo,TX
-Pampa,TX
-Wellington,TX
-Memphis,TX
-Matador,TX
-Plainview,TX
-Garden City,KS
-Ulysses,KS
-Scott City,KS
-Liberal,KS
-Perryton,TX
-Guymon,OK
-Dumas,TX
-Victoria,TX
-La Grange,TX
-Gonzales,TX
-Austin,TX
-Burnet,TX
-San Antonio,TX
-Beeville,TX
-Kerrville,TX
-Mason,TX
-Midland,TX
-Pecos,TX
-Fort Stockton,TX
-Alpine,TX
-Crystal City,TX
-Pearsall,TX
-Laredo,TX
-Brownsville,TX
-Corpus Christi,TX
-College Station,TX
-Pearland,TX
-Houston,TX
-Beaumont,TX
-Huntsville,TX
-Nacogdoches,TX
-San Angelo,TX
-Brady,TX
-Junction,TX
-Uvalde,TX
-Del Rio,TX
-Eagle Pass,TX
-Big Spring,TX
-Sweetwater,TX
-Snyder,TX
-Abilene,TX
-Childress,TX
-Haskell,TX
-Wichita Falls,TX
-Graham,TX
-Seymour,TX
-Vernon,TX
-Brownwood,TX
-Stephenville,TX
-Waco,TX
-Corsicana,TX
-Killeen,TX
-Fort Worth,TX
-Dallas,TX
-Paris,TX
-Tyler,TX
-Longview,TX
-Texarkana,TX
-Lawton,OK
-Altus,OK
-Frederick,OK
-Ardmore,OK
-Elk City,OK
-Chickasha,OK
-Oklahoma City,OK
-Ada,OK
-Sherman,TX
-Hot Springs,AR
-Idabel,OK
-Sand Point,AK
-Anchorage,AK
-Valdez,AK
-Bristol Bay,AK
-Kotzebue,AK
-Nome,AK
-Dillingham,AK
-Kodiak,AK
-Juneau,AK
-Sitka,AK
-Ketchikan,AK
-Bethel,AK
-Barrow,AK
-Unalaska,AK
-Fairbanks,AK
-Havre,MT
-Shelby,MT
-Great Falls,MT
-Lewistown,MT
-Cody,WY
-Worland,WY
-Riverton,WY
-Sheridan,WY
-Miles City,MT
-Jordan,MT
-Colstrip,MT
-Billings,MT
-Harlowton,MT
-Dillon,MT
-Bozeman,MT
-Helena,MT
-Butte,MT
-Bonners Ferry,ID
-Libby,MT
-Kalispell,MT
-Missoula,MT
-Gillette,WY
-Rawlins,WY
-Casper,WY
-Lusk,WY
-Honolulu,HI
-Kauai,HI
-Maui,HI
-Las Vegas,NM
-Santa Fe,NM
-Tucumcari,NM
-Clayton,NM
-Alamosa,CO
-Albuquerque,NM
-Socorro,NM
-Phoenix,AZ
-Safford,AZ
-Tucson,AZ
-Grand Junction,CO
-Gunnison,CO
-Farmington,NM
-Flagstaff,AZ
-Cortez,CO
-Gallup,AZ
-Hawaii,HI
-Twin Falls,ID
-Burley,ID
-Boise,ID
-Ontario,OR
-McCall,ID
-St. George,UT
-Price,UT
-Moab,UT
-Richfield,UT
-Loa,UT
-Provo,UT
-Salt Lake City,UT
-Logan,UT
-Pocatello,ID
-Salmon,ID
-Jackson,WY
-Steamboat Springs,CO
-Vernal,UT
-Soda Springs,ID
-Rock Springs,WY
-Klamath Falls,CA
-Burns,OR
-Lakeview,OR
-Redding,CA
-Eureka,CA
-Medford,OR
-Crescent City,CA
-Roseburg,OR
-Modesto,CA
-Bakersfield,CA
-Fresno,CA
-Chico,CA
-Sacramento,CA
-San Jose,CA
-Elko,NV
-Winnemucca,NV
-Portola,CA
-Reno,NV
-Santa Rosa,CA
-San Francisco,CA
-Las Vegas,NV
-Mineral,NV
-Mammoth Lakes,CA
-San Diego,CA
-Yuma,CA
-Santa Barbara,CA
-Los Angeles,CA
-Lewiston,ID
-Pullman,WA
-Moses Lake,WA
-Wenatchee,WA
-Spokane,WA
-Colville,WA
-Longview,WA
-Portland,OR
-The Dalles,OR
-Eugene,OR
-Newport,OR
-Yakima,WA
-Kennewick,WA
-La Grande,OR
-Enterprise,OR
-Bend,OR
-Condon,OR
-John Day,OR
-Friday Harbor,WA
-Bellingham,WA
-Port Angeles,WA
-Seattle,WA
+city,state,cz_and_state
+Johnson City,TN,"Johnson City, TN"
+Morristown,TN,"Morristown, TN"
+Middlesborough,TN,"Middlesborough, TN"
+Knoxville,TN,"Knoxville, TN"
+Winston-Salem,NC,"Winston-Salem, NC"
+Martinsville,VA,"Martinsville, VA"
+Greensboro,NC,"Greensboro, NC"
+North Wilkesboro,NC,"North Wilkesboro, NC"
+Galax,VA,"Galax, VA"
+Spartanburg,SC,"Spartanburg, SC"
+Gastonia,NC,"Gastonia, NC"
+Charlotte,NC,"Charlotte, NC"
+Boone,NC,"Boone, NC"
+Morganton,NC,"Morganton, NC"
+Hickory,NC,"Hickory, NC"
+Franklin,NC,"Franklin, NC"
+Sylva,NC,"Sylva, NC"
+Asheville,NC,"Asheville, NC"
+Andrews,NC,"Andrews, NC"
+Bennettsville,SC,"Bennettsville, SC"
+Florence,SC,"Florence, SC"
+Fayetteville,NC,"Fayetteville, NC"
+Wilmington,NC,"Wilmington, NC"
+Rocky Mount,NC,"Rocky Mount, NC"
+Raleigh,NC,"Raleigh, NC"
+Henderson,NC,"Henderson, NC"
+Goldsboro,NC,"Goldsboro, NC"
+Jacksonville,NC,"Jacksonville, NC"
+Virginia Beach,VA,"Virginia Beach, VA"
+Washington,NC,"Washington, NC"
+South Boston,VA,"South Boston, VA"
+Lynchburg,VA,"Lynchburg, VA"
+Richmond,VA,"Richmond, VA"
+Newport News,VA,"Newport News, VA"
+Roanoke Rapids,NC,"Roanoke Rapids, NC"
+Gulfport,MS,"Gulfport, MS"
+Laurel,MS,"Laurel, MS"
+Hattiesburg,MS,"Hattiesburg, MS"
+Kosciusko,MS,"Kosciusko, MS"
+Yazoo City,MS,"Yazoo City, MS"
+Jackson,MS,"Jackson, MS"
+McComb,MS,"McComb, MS"
+Brookhaven,MS,"Brookhaven, MS"
+Jena,LA,"Jena, LA"
+Natchez,MS,"Natchez, MS"
+Vicksburg,MS,"Vicksburg, MS"
+New Orleans,LA,"New Orleans, LA"
+Houma,LA,"Houma, LA"
+Baton Rouge,LA,"Baton Rouge, LA"
+Alexandria,LA,"Alexandria, LA"
+Lake Charles,LA,"Lake Charles, LA"
+Lafayette,LA,"Lafayette, LA"
+Monroe,LA,"Monroe, LA"
+Lake Providence,LA,"Lake Providence, LA"
+Magnolia,AR,"Magnolia, AR"
+Shreveport,LA,"Shreveport, LA"
+Ruston,LA,"Ruston, LA"
+Many,LA,"Many, LA"
+Crossett,AR,"Crossett, AR"
+Pine Bluff,AR,"Pine Bluff, AR"
+El Dorado,AR,"El Dorado, AR"
+Little Rock,AR,"Little Rock, AR"
+Stuttgart,AR,"Stuttgart, AR"
+Searcy,AR,"Searcy, AR"
+Corbin,KY,"Corbin, KY"
+Richmond,KY,"Richmond, KY"
+West Liberty,KY,"West Liberty, KY"
+Hazard,KY,"Hazard, KY"
+Campbellsville,KY,"Campbellsville, KY"
+Somerset,KY,"Somerset, KY"
+Greenwood,MS,"Greenwood, MS"
+Clarksdale,MS,"Clarksdale, MS"
+Greenville,MS,"Greenville, MS"
+Jackson,TN,"Jackson, TN"
+Dyersburg,TN,"Dyersburg, TN"
+Lexington,TN,"Lexington, TN"
+Tupelo,MS,"Tupelo, MS"
+Corinth,MS,"Corinth, MS"
+New Albany,MS,"New Albany, MS"
+Memphis,TN,"Memphis, TN"
+West Memphis,AR,"West Memphis, AR"
+Bowling Green,KY,"Bowling Green, KY"
+Glasgow,KY,"Glasgow, KY"
+Columbia,TN,"Columbia, TN"
+Nashville,TN,"Nashville, TN"
+Tullahoma,TN,"Tullahoma, TN"
+Dickson,TN,"Dickson, TN"
+Clarksville,TN,"Clarksville, TN"
+Huntsville,AL,"Huntsville, AL"
+Gadsden,AL,"Gadsden, AL"
+Florence,AL,"Florence, AL"
+McMinnville,TN,"McMinnville, TN"
+Cookeville,TN,"Cookeville, TN"
+Chattanooga,TN,"Chattanooga, TN"
+Crossville,TN,"Crossville, TN"
+Ellijay,GA,"Ellijay, GA"
+Cleveland,TN,"Cleveland, TN"
+Rome,GA,"Rome, GA"
+Tampa,FL,"Tampa, FL"
+Lakeland,FL,"Lakeland, FL"
+Sarasota,FL,"Sarasota, FL"
+Miami,FL,"Miami, FL"
+Port St. Lucie,FL,"Port St. Lucie, FL"
+Cape Coral,FL,"Cape Coral, FL"
+Palm Bay,FL,"Palm Bay, FL"
+Orlando,FL,"Orlando, FL"
+Deltona,FL,"Deltona, FL"
+Jacksonville,FL,"Jacksonville, FL"
+Lake City,FL,"Lake City, FL"
+Ocala,FL,"Ocala, FL"
+Gainesville,FL,"Gainesville, FL"
+Sumter,SC,"Sumter, SC"
+Columbia,SC,"Columbia, SC"
+Barnwell,SC,"Barnwell, SC"
+Charleston,SC,"Charleston, SC"
+Greenville,SC,"Greenville, SC"
+Augusta,GA,"Augusta, GA"
+Washington,GA,"Washington, GA"
+Fitzgerald,GA,"Fitzgerald, GA"
+Cordele,GA,"Cordele, GA"
+Valdosta,GA,"Valdosta, GA"
+Waycross,GA,"Waycross, GA"
+Brunswick,GA,"Brunswick, GA"
+Hinesville,GA,"Hinesville, GA"
+Statesboro,GA,"Statesboro, GA"
+Savannah,GA,"Savannah, GA"
+Macon,GA,"Macon, GA"
+Vidalia,GA,"Vidalia, GA"
+Milledgeville,GA,"Milledgeville, GA"
+Dublin,GA,"Dublin, GA"
+Atlanta,GA,"Atlanta, GA"
+Griffin,GA,"Griffin, GA"
+Athens,GA,"Athens, GA"
+Toccoa,GA,"Toccoa, GA"
+Gainesville,GA,"Gainesville, GA"
+Talladega,AL,"Talladega, AL"
+LaGrange,GA,"LaGrange, GA"
+Columbus,GA,"Columbus, GA"
+Americus,GA,"Americus, GA"
+Auburn,AL,"Auburn, AL"
+Tallahassee,FL,"Tallahassee, FL"
+Panama City,FL,"Panama City, FL"
+Bainbridge,GA,"Bainbridge, GA"
+Thomasville,GA,"Thomasville, GA"
+Albany,GA,"Albany, GA"
+Eufaula,GA,"Eufaula, GA"
+Dothan,AL,"Dothan, AL"
+Meridian,MS,"Meridian, MS"
+Columbus,MS,"Columbus, MS"
+Starkville,MS,"Starkville, MS"
+Jasper,AL,"Jasper, AL"
+Birmingham,AL,"Birmingham, AL"
+Tuscaloosa,AL,"Tuscaloosa, AL"
+Demopolis,AL,"Demopolis, AL"
+Pensacola,FL,"Pensacola, FL"
+Mobile,AL,"Mobile, AL"
+Atmore,AL,"Atmore, AL"
+Montgomery,AL,"Montgomery, AL"
+Troy,AL,"Troy, AL"
+Bluefield,VA,"Bluefield, VA"
+Welch,WV,"Welch, WV"
+Big Stone Gap,VA,"Big Stone Gap, VA"
+Fredericksburg,VA,"Fredericksburg, VA"
+Baltimore,MD,"Baltimore, MD"
+Colonial Beach,VA,"Colonial Beach, VA"
+Washington DC,DC,"Washington DC, DC"
+Marquette,MI,"Marquette, MI"
+Marinette,MI,"Marinette, MI"
+Sault Ste. Marie,MI,"Sault Ste. Marie, MI"
+Jackson,MI,"Jackson, MI"
+Detroit,MI,"Detroit, MI"
+Lansing,MI,"Lansing, MI"
+Mount Pleasant,MI,"Mount Pleasant, MI"
+Saginaw,MI,"Saginaw, MI"
+Big Rapids,MI,"Big Rapids, MI"
+Ludington,MI,"Ludington, MI"
+Kalamazoo,MI,"Kalamazoo, MI"
+Grand Rapids,MI,"Grand Rapids, MI"
+Traverse City,MI,"Traverse City, MI"
+Petoskey,MI,"Petoskey, MI"
+Alpena,MI,"Alpena, MI"
+Grayling,MI,"Grayling, MI"
+Dayton,OH,"Dayton, OH"
+Washington Court House,OH,"Washington Court House, OH"
+Wayne,IN,"Wayne, IN"
+Cincinnati,OH,"Cincinnati, OH"
+Maysville,KY,"Maysville, KY"
+Washington,IN,"Washington, IN"
+Lexington,KY,"Lexington, KY"
+Mount Sterling,KY,"Mount Sterling, KY"
+Danville,KY,"Danville, KY"
+Elizabethtown,KY,"Elizabethtown, KY"
+Louisville,KY,"Louisville, KY"
+Madison,IN,"Madison, IN"
+Bardstown,KY,"Bardstown, KY"
+Owensboro,KY,"Owensboro, KY"
+Findlay,OH,"Findlay, OH"
+Lima,OH,"Lima, OH"
+Toledo,OH,"Toledo, OH"
+Defiance,OH,"Defiance, OH"
+South Bend,IN,"South Bend, IN"
+Concord,IN,"Concord, IN"
+Wayne,IN,"Wayne, IN"
+Center,IN,"Center, IN"
+Muncie,IN,"Muncie, IN"
+Fort Wayne,IN,"Fort Wayne, IN"
+Indianapolis,IN,"Indianapolis, IN"
+Columbus,IN,"Columbus, IN"
+Terre Haute,IN,"Terre Haute, IN"
+Lafayette,IN,"Lafayette, IN"
+Bloomington,IN,"Bloomington, IN"
+Evansville,IN,"Evansville, IN"
+Olney,IL,"Olney, IL"
+Vincennes,IN,"Vincennes, IN"
+Gary,IN,"Gary, IN"
+Canton,OH,"Canton, OH"
+Lorain,OH,"Lorain, OH"
+Cleveland,OH,"Cleveland, OH"
+Parkersburg,WV,"Parkersburg, WV"
+Zanesville,OH,"Zanesville, OH"
+Weirton,OH,"Weirton, OH"
+Wheeling,WV,"Wheeling, WV"
+Scioto,OH,"Scioto, OH"
+Athens,OH,"Athens, OH"
+Columbus,OH,"Columbus, OH"
+Mansfield,OH,"Mansfield, OH"
+State College,PA,"State College, PA"
+Altoona,PA,"Altoona, PA"
+Pittsburgh,PA,"Pittsburgh, PA"
+Youngstown,OH,"Youngstown, OH"
+Erie,PA,"Erie, PA"
+Roanoke,VA,"Roanoke, VA"
+Elkins,WV,"Elkins, WV"
+Morgantown,WV,"Morgantown, WV"
+Buckhannon,WV,"Buckhannon, WV"
+Beckley,WV,"Beckley, WV"
+Summersville,WV,"Summersville, WV"
+Charleston,WV,"Charleston, WV"
+Spencer,WV,"Spencer, WV"
+Pikeville,KY,"Pikeville, KY"
+Huntington,KY,"Huntington, KY"
+Harrisonburg,VA,"Harrisonburg, VA"
+Staunton,VA,"Staunton, VA"
+Hagerstown,PA,"Hagerstown, PA"
+Cumberland,MD,"Cumberland, MD"
+Winchester,VA,"Winchester, VA"
+Charlottesville,VA,"Charlottesville, VA"
+Syracuse,NY,"Syracuse, NY"
+Oneonta,NY,"Oneonta, NY"
+Union,NY,"Union, NY"
+Buffalo,NY,"Buffalo, NY"
+Elmira,NY,"Elmira, NY"
+Olean,NY,"Olean, NY"
+St. Marys,PA,"St. Marys, PA"
+Watertown,NY,"Watertown, NY"
+Plattsburgh,NY,"Plattsburgh, NY"
+Amsterdam,NY,"Amsterdam, NY"
+Albany,NY,"Albany, NY"
+Sunbury,PA,"Sunbury, PA"
+Scranton,PA,"Scranton, PA"
+Williamsport,PA,"Williamsport, PA"
+Allentown,PA,"Allentown, PA"
+Reading,PA,"Reading, PA"
+Harrisburg,PA,"Harrisburg, PA"
+Poughkeepsie,NY,"Poughkeepsie, NY"
+New York City,NY,"New York City, NY"
+Toms River,NJ,"Toms River, NJ"
+Newark,NJ,"Newark, NJ"
+Philadelphia,PA,"Philadelphia, PA"
+Wilmington,DE,"Wilmington, DE"
+Dover,DE,"Dover, DE"
+Easton,MD,"Easton, MD"
+Chincoteague,VA,"Chincoteague, VA"
+Bangor,ME,"Bangor, ME"
+Calais,ME,"Calais, ME"
+Presque Isle,ME,"Presque Isle, ME"
+Portland,ME,"Portland, ME"
+Burlington,VT,"Burlington, VT"
+Berlin,VT,"Berlin, VT"
+Claremont,VT,"Claremont, VT"
+Providence,RI,"Providence, RI"
+Nantucket,MA,"Nantucket, MA"
+Oak Bluffs,MA,"Oak Bluffs, MA"
+Boston,MA,"Boston, MA"
+Manchester,NH,"Manchester, NH"
+Keene,NH,"Keene, NH"
+Springfield,MA,"Springfield, MA"
+Bridgeport,CT,"Bridgeport, CT"
+Pittsfield,MA,"Pittsfield, MA"
+Ashland,WI,"Ashland, WI"
+Houghton,MI,"Houghton, MI"
+Ironwood,MI,"Ironwood, MI"
+Rhinelander,WI,"Rhinelander, WI"
+Rice Lake,WI,"Rice Lake, WI"
+Amery,WI,"Amery, WI"
+Hutchinson,MN,"Hutchinson, MN"
+Redwood Falls,MN,"Redwood Falls, MN"
+Mankato,MN,"Mankato, MN"
+Owatonna,MN,"Owatonna, MN"
+St. Cloud,MN,"St. Cloud, MN"
+Minneapolis,MN,"Minneapolis, MN"
+Pine City,MN,"Pine City, MN"
+Brainerd,MN,"Brainerd, MN"
+Rochester,MN,"Rochester, MN"
+Austin,MN,"Austin, MN"
+Mason City,IA,"Mason City, IA"
+Decorah,IA,"Decorah, IA"
+Marshalltown,IA,"Marshalltown, IA"
+Waterloo,IA,"Waterloo, IA"
+Iowa Falls,IA,"Iowa Falls, IA"
+Iowa City,IA,"Iowa City, IA"
+Cedar Rapids,IA,"Cedar Rapids, IA"
+Ottumwa,IA,"Ottumwa, IA"
+Sheboygan,WI,"Sheboygan, WI"
+Appleton,WI,"Appleton, WI"
+Green Bay,WI,"Green Bay, WI"
+Shawano,WI,"Shawano, WI"
+Wausau,WI,"Wausau, WI"
+Eau Claire,WI,"Eau Claire, WI"
+La Crosse,WI,"La Crosse, WI"
+Monroe,WI,"Monroe, WI"
+Madison,WI,"Madison, WI"
+Dubuque,IA,"Dubuque, IA"
+Charleston,IL,"Charleston, IL"
+Douglas,IL,"Douglas, IL"
+Bloomington,IL,"Bloomington, IL"
+Decatur,IL,"Decatur, IL"
+Burlington,IA,"Burlington, IA"
+Galesburg,IL,"Galesburg, IL"
+Davenport,IL,"Davenport, IL"
+Clinton,IA,"Clinton, IA"
+Peoria,IL,"Peoria, IL"
+Kenosha,WI,"Kenosha, WI"
+Milwaukee,WI,"Milwaukee, WI"
+Bourbonnais,IL,"Bourbonnais, IL"
+Chicago,IL,"Chicago, IL"
+Rockford,IL,"Rockford, IL"
+Rolla,MO,"Rolla, MO"
+Farmington,MO,"Farmington, MO"
+St. Louis,MO,"St. Louis, MO"
+Mexico,MO,"Mexico, MO"
+Jacksonville,IL,"Jacksonville, IL"
+Springfield,IL,"Springfield, IL"
+Edwardsville,IL,"Edwardsville, IL"
+Quincy,IL,"Quincy, IL"
+Mountain Home,AR,"Mountain Home, AR"
+West Plains,MO,"West Plains, MO"
+Harrison,AR,"Harrison, AR"
+Heber Springs,AR,"Heber Springs, AR"
+Batesville,AR,"Batesville, AR"
+Henderson,KY,"Henderson, KY"
+Union City,TN,"Union City, TN"
+Paducah,KY,"Paducah, KY"
+Murray,KY,"Murray, KY"
+Centralia,IL,"Centralia, IL"
+Carbondale,IL,"Carbondale, IL"
+Harrisburg,IL,"Harrisburg, IL"
+Cape Girardeau,MO,"Cape Girardeau, MO"
+Poplar Bluff,MO,"Poplar Bluff, MO"
+Blytheville,AR,"Blytheville, AR"
+Jonesboro,AR,"Jonesboro, AR"
+Roseau,MN,"Roseau, MN"
+Duluth,MN,"Duluth, MN"
+West Cook,MN,"West Cook, MN"
+International Falls,MN,"International Falls, MN"
+Moberly,MO,"Moberly, MO"
+Marshall,MO,"Marshall, MO"
+Brookfield,MO,"Brookfield, MO"
+Trenton,MO,"Trenton, MO"
+Polk,MO,"Polk, MO"
+Centerville,IA,"Centerville, IA"
+Kirksville,MO,"Kirksville, MO"
+Bismarck,ND,"Bismarck, ND"
+East Grant,ND,"East Grant, ND"
+Linton,ND,"Linton, ND"
+Steele,ND,"Steele, ND"
+Devils Lake,ND,"Devils Lake, ND"
+Carrington,ND,"Carrington, ND"
+Turtle Mountain,ND,"Turtle Mountain, ND"
+Minot,ND,"Minot, ND"
+Rugby,ND,"Rugby, ND"
+Ekalaka,SD,"Ekalaka, SD"
+Baker,MT,"Baker, MT"
+Bowman,ND,"Bowman, ND"
+Lemmon,ND,"Lemmon, ND"
+Scobey,MT,"Scobey, MT"
+Wolf Point,MT,"Wolf Point, MT"
+Plentywood,MT,"Plentywood, MT"
+Glasgow,MT,"Glasgow, MT"
+Glendive,MT,"Glendive, MT"
+Dickinson,ND,"Dickinson, ND"
+Sidney,ND,"Sidney, ND"
+Williston,ND,"Williston, ND"
+Brookings,SD,"Brookings, SD"
+Madison,SD,"Madison, SD"
+Sioux Falls,SD,"Sioux Falls, SD"
+Watertown,SD,"Watertown, SD"
+Milbank,MN,"Milbank, MN"
+Sisseton,SD,"Sisseton, SD"
+East Corson,SD,"East Corson, SD"
+Mobridge,SD,"Mobridge, SD"
+Aberdeen,SD,"Aberdeen, SD"
+Bemidji,MN,"Bemidji, MN"
+Grafton,ND,"Grafton, ND"
+Thief River Falls,MN,"Thief River Falls, MN"
+Grand Forks,ND,"Grand Forks, ND"
+Fargo,ND,"Fargo, ND"
+Lisbon,ND,"Lisbon, ND"
+Jamestown,ND,"Jamestown, ND"
+Cooperstown,ND,"Cooperstown, ND"
+Fergus Falls,MN,"Fergus Falls, MN"
+Little Falls,MN,"Little Falls, MN"
+O'Neill,NE,"O'Neill, NE"
+Ord,NE,"Ord, NE"
+Ainsworth,NE,"Ainsworth, NE"
+Winner,SD,"Winner, SD"
+Yankton,SD,"Yankton, SD"
+Mitchell,SD,"Mitchell, SD"
+Huron,SD,"Huron, SD"
+Parkston,SD,"Parkston, SD"
+Chamberlain,SD,"Chamberlain, SD"
+Miller,SD,"Miller, SD"
+Pierre,SD,"Pierre, SD"
+Gettysburg,SD,"Gettysburg, SD"
+Willmar,MN,"Willmar, MN"
+Marshall,MN,"Marshall, MN"
+Sioux Center,IA,"Sioux Center, IA"
+Worthington,MN,"Worthington, MN"
+Spencer,IA,"Spencer, IA"
+Fairmont,MN,"Fairmont, MN"
+Storm Lake,IA,"Storm Lake, IA"
+Fort Dodge,IA,"Fort Dodge, IA"
+Des Moines,IA,"Des Moines, IA"
+Creston,IA,"Creston, IA"
+Atlantic,IA,"Atlantic, IA"
+Carroll,IA,"Carroll, IA"
+Rapid City,SD,"Rapid City, SD"
+Eagle Butte,SD,"Eagle Butte, SD"
+Southwest Jackson,SD,"Southwest Jackson, SD"
+Murdo,SD,"Murdo, SD"
+Mission,SD,"Mission, SD"
+Scottsbluff,NE,"Scottsbluff, NE"
+Cheyenne,WY,"Cheyenne, WY"
+Torrington,WY,"Torrington, WY"
+Gordon,SD,"Gordon, SD"
+Norfolk,NE,"Norfolk, NE"
+Columbus,NE,"Columbus, NE"
+Hastings,NE,"Hastings, NE"
+York,NE,"York, NE"
+Grand Island,NE,"Grand Island, NE"
+Sioux City,IA,"Sioux City, IA"
+West Point,NE,"West Point, NE"
+Lincoln,NE,"Lincoln, NE"
+Nebraska City,NE,"Nebraska City, NE"
+Red Oak,IA,"Red Oak, IA"
+Omaha,NE,"Omaha, NE"
+Sterling,CO,"Sterling, CO"
+Ogallala,NE,"Ogallala, NE"
+Oshkosh,NE,"Oshkosh, NE"
+Valentine,NE,"Valentine, NE"
+Broken Bow,NE,"Broken Bow, NE"
+North Platte,NE,"North Platte, NE"
+Colorado Springs,CO,"Colorado Springs, CO"
+Limon,CO,"Limon, CO"
+Springfield,CO,"Springfield, CO"
+Pueblo,CO,"Pueblo, CO"
+Trinidad,CO,"Trinidad, CO"
+Burlington,CO,"Burlington, CO"
+Oberlin,KS,"Oberlin, KS"
+Norton,KS,"Norton, KS"
+Phillipsburg,KS,"Phillipsburg, KS"
+Colby,KS,"Colby, KS"
+Goodland,KS,"Goodland, KS"
+Wano,KS,"Wano, KS"
+McCook,NE,"McCook, NE"
+Kearney,NE,"Kearney, NE"
+Lexington,NE,"Lexington, NE"
+Salida,CO,"Salida, CO"
+Glenwood Springs,CO,"Glenwood Springs, CO"
+Granby,CO,"Granby, CO"
+Laramie,WY,"Laramie, WY"
+Fort Collins,CO,"Fort Collins, CO"
+Denver,CO,"Denver, CO"
+Pratt,KS,"Pratt, KS"
+Coldwater,KS,"Coldwater, KS"
+Dodge City,KS,"Dodge City, KS"
+Great Bend,KS,"Great Bend, KS"
+Hutchinson,KS,"Hutchinson, KS"
+Hays,KS,"Hays, KS"
+Township 11,KS,"Township 11, KS"
+Center,KS,"Center, KS"
+Concordia,KS,"Concordia, KS"
+Superior,NE,"Superior, NE"
+Beloit,KS,"Beloit, KS"
+Salina,KS,"Salina, KS"
+Hiawatha,KS,"Hiawatha, KS"
+Marysville,KS,"Marysville, KS"
+Manhattan,KS,"Manhattan, KS"
+Topeka,KS,"Topeka, KS"
+Wichita,KS,"Wichita, KS"
+Newton,KS,"Newton, KS"
+Winfield,KS,"Winfield, KS"
+Ottawa,KS,"Ottawa, KS"
+Emporia,KS,"Emporia, KS"
+Bartlesville,KS,"Bartlesville, KS"
+Leavenworth,KS,"Leavenworth, KS"
+Kansas City,MO,"Kansas City, MO"
+St. Joseph,MO,"St. Joseph, MO"
+Sedalia,MO,"Sedalia, MO"
+Polk,MO,"Polk, MO"
+Bethany,MO,"Bethany, MO"
+Columbia,MO,"Columbia, MO"
+Eldon,MO,"Eldon, MO"
+Springfield,MO,"Springfield, MO"
+Monett,MO,"Monett, MO"
+Joplin,MO,"Joplin, MO"
+Center,MO,"Center, MO"
+Russellville,AR,"Russellville, AR"
+Fort Smith,AR,"Fort Smith, AR"
+Muskogee,OK,"Muskogee, OK"
+Fayetteville,AR,"Fayetteville, AR"
+Stillwater,OK,"Stillwater, OK"
+Tulsa,OK,"Tulsa, OK"
+Okmulgee,OK,"Okmulgee, OK"
+Woodward,OK,"Woodward, OK"
+Enid,OK,"Enid, OK"
+El Paso,TX,"El Paso, TX"
+Alamogordo,NM,"Alamogordo, NM"
+Truth or Consequences,NM,"Truth or Consequences, NM"
+Deming,NM,"Deming, NM"
+Van Horn,TX,"Van Horn, TX"
+Roswell,NM,"Roswell, NM"
+Santa Rosa,NM,"Santa Rosa, NM"
+Hobbs,NM,"Hobbs, NM"
+Lubbock,TX,"Lubbock, TX"
+Clovis,NM,"Clovis, NM"
+Littlefield,TX,"Littlefield, TX"
+Amarillo,TX,"Amarillo, TX"
+Pampa,TX,"Pampa, TX"
+Wellington,TX,"Wellington, TX"
+Memphis,TX,"Memphis, TX"
+Matador,TX,"Matador, TX"
+Plainview,TX,"Plainview, TX"
+Garden City,KS,"Garden City, KS"
+Ulysses,KS,"Ulysses, KS"
+Scott City,KS,"Scott City, KS"
+Liberal,KS,"Liberal, KS"
+Perryton,TX,"Perryton, TX"
+Guymon,OK,"Guymon, OK"
+Dumas,TX,"Dumas, TX"
+Victoria,TX,"Victoria, TX"
+La Grange,TX,"La Grange, TX"
+Gonzales,TX,"Gonzales, TX"
+Austin,TX,"Austin, TX"
+Burnet,TX,"Burnet, TX"
+San Antonio,TX,"San Antonio, TX"
+Beeville,TX,"Beeville, TX"
+Kerrville,TX,"Kerrville, TX"
+Mason,TX,"Mason, TX"
+Midland,TX,"Midland, TX"
+Pecos,TX,"Pecos, TX"
+Fort Stockton,TX,"Fort Stockton, TX"
+Alpine,TX,"Alpine, TX"
+Crystal City,TX,"Crystal City, TX"
+Pearsall,TX,"Pearsall, TX"
+Laredo,TX,"Laredo, TX"
+Brownsville,TX,"Brownsville, TX"
+Corpus Christi,TX,"Corpus Christi, TX"
+College Station,TX,"College Station, TX"
+Pearland,TX,"Pearland, TX"
+Houston,TX,"Houston, TX"
+Beaumont,TX,"Beaumont, TX"
+Huntsville,TX,"Huntsville, TX"
+Nacogdoches,TX,"Nacogdoches, TX"
+San Angelo,TX,"San Angelo, TX"
+Brady,TX,"Brady, TX"
+Junction,TX,"Junction, TX"
+Uvalde,TX,"Uvalde, TX"
+Del Rio,TX,"Del Rio, TX"
+Eagle Pass,TX,"Eagle Pass, TX"
+Big Spring,TX,"Big Spring, TX"
+Sweetwater,TX,"Sweetwater, TX"
+Snyder,TX,"Snyder, TX"
+Abilene,TX,"Abilene, TX"
+Childress,TX,"Childress, TX"
+Haskell,TX,"Haskell, TX"
+Wichita Falls,TX,"Wichita Falls, TX"
+Graham,TX,"Graham, TX"
+Seymour,TX,"Seymour, TX"
+Vernon,TX,"Vernon, TX"
+Brownwood,TX,"Brownwood, TX"
+Stephenville,TX,"Stephenville, TX"
+Waco,TX,"Waco, TX"
+Corsicana,TX,"Corsicana, TX"
+Killeen,TX,"Killeen, TX"
+Fort Worth,TX,"Fort Worth, TX"
+Dallas,TX,"Dallas, TX"
+Paris,TX,"Paris, TX"
+Tyler,TX,"Tyler, TX"
+Longview,TX,"Longview, TX"
+Texarkana,TX,"Texarkana, TX"
+Lawton,OK,"Lawton, OK"
+Altus,OK,"Altus, OK"
+Frederick,OK,"Frederick, OK"
+Ardmore,OK,"Ardmore, OK"
+Elk City,OK,"Elk City, OK"
+Chickasha,OK,"Chickasha, OK"
+Oklahoma City,OK,"Oklahoma City, OK"
+Ada,OK,"Ada, OK"
+Sherman,TX,"Sherman, TX"
+Hot Springs,AR,"Hot Springs, AR"
+Idabel,OK,"Idabel, OK"
+Sand Point,AK,"Sand Point, AK"
+Anchorage,AK,"Anchorage, AK"
+Valdez,AK,"Valdez, AK"
+Bristol Bay,AK,"Bristol Bay, AK"
+Kotzebue,AK,"Kotzebue, AK"
+Nome,AK,"Nome, AK"
+Dillingham,AK,"Dillingham, AK"
+Kodiak,AK,"Kodiak, AK"
+Juneau,AK,"Juneau, AK"
+Sitka,AK,"Sitka, AK"
+Ketchikan,AK,"Ketchikan, AK"
+Bethel,AK,"Bethel, AK"
+Barrow,AK,"Barrow, AK"
+Unalaska,AK,"Unalaska, AK"
+Fairbanks,AK,"Fairbanks, AK"
+Havre,MT,"Havre, MT"
+Shelby,MT,"Shelby, MT"
+Great Falls,MT,"Great Falls, MT"
+Lewistown,MT,"Lewistown, MT"
+Cody,WY,"Cody, WY"
+Worland,WY,"Worland, WY"
+Riverton,WY,"Riverton, WY"
+Sheridan,WY,"Sheridan, WY"
+Miles City,MT,"Miles City, MT"
+Jordan,MT,"Jordan, MT"
+Colstrip,MT,"Colstrip, MT"
+Billings,MT,"Billings, MT"
+Harlowton,MT,"Harlowton, MT"
+Dillon,MT,"Dillon, MT"
+Bozeman,MT,"Bozeman, MT"
+Helena,MT,"Helena, MT"
+Butte,MT,"Butte, MT"
+Bonners Ferry,ID,"Bonners Ferry, ID"
+Libby,MT,"Libby, MT"
+Kalispell,MT,"Kalispell, MT"
+Missoula,MT,"Missoula, MT"
+Gillette,WY,"Gillette, WY"
+Rawlins,WY,"Rawlins, WY"
+Casper,WY,"Casper, WY"
+Lusk,WY,"Lusk, WY"
+Honolulu,HI,"Honolulu, HI"
+Kauai,HI,"Kauai, HI"
+Maui,HI,"Maui, HI"
+Las Vegas,NM,"Las Vegas, NM"
+Santa Fe,NM,"Santa Fe, NM"
+Tucumcari,NM,"Tucumcari, NM"
+Clayton,NM,"Clayton, NM"
+Alamosa,CO,"Alamosa, CO"
+Albuquerque,NM,"Albuquerque, NM"
+Socorro,NM,"Socorro, NM"
+Phoenix,AZ,"Phoenix, AZ"
+Safford,AZ,"Safford, AZ"
+Tucson,AZ,"Tucson, AZ"
+Grand Junction,CO,"Grand Junction, CO"
+Gunnison,CO,"Gunnison, CO"
+Farmington,NM,"Farmington, NM"
+Flagstaff,AZ,"Flagstaff, AZ"
+Cortez,CO,"Cortez, CO"
+Gallup,AZ,"Gallup, AZ"
+Hawaii,HI,"Hawaii, HI"
+Twin Falls,ID,"Twin Falls, ID"
+Burley,ID,"Burley, ID"
+Boise,ID,"Boise, ID"
+Ontario,OR,"Ontario, OR"
+McCall,ID,"McCall, ID"
+St. George,UT,"St. George, UT"
+Price,UT,"Price, UT"
+Moab,UT,"Moab, UT"
+Richfield,UT,"Richfield, UT"
+Loa,UT,"Loa, UT"
+Provo,UT,"Provo, UT"
+Salt Lake City,UT,"Salt Lake City, UT"
+Logan,UT,"Logan, UT"
+Pocatello,ID,"Pocatello, ID"
+Salmon,ID,"Salmon, ID"
+Jackson,WY,"Jackson, WY"
+Steamboat Springs,CO,"Steamboat Springs, CO"
+Vernal,UT,"Vernal, UT"
+Soda Springs,ID,"Soda Springs, ID"
+Rock Springs,WY,"Rock Springs, WY"
+Klamath Falls,CA,"Klamath Falls, CA"
+Burns,OR,"Burns, OR"
+Lakeview,OR,"Lakeview, OR"
+Redding,CA,"Redding, CA"
+Eureka,CA,"Eureka, CA"
+Medford,OR,"Medford, OR"
+Crescent City,CA,"Crescent City, CA"
+Roseburg,OR,"Roseburg, OR"
+Modesto,CA,"Modesto, CA"
+Bakersfield,CA,"Bakersfield, CA"
+Fresno,CA,"Fresno, CA"
+Chico,CA,"Chico, CA"
+Sacramento,CA,"Sacramento, CA"
+San Jose,CA,"San Jose, CA"
+Elko,NV,"Elko, NV"
+Winnemucca,NV,"Winnemucca, NV"
+Portola,CA,"Portola, CA"
+Reno,NV,"Reno, NV"
+Santa Rosa,CA,"Santa Rosa, CA"
+San Francisco,CA,"San Francisco, CA"
+Las Vegas,NV,"Las Vegas, NV"
+Mineral,NV,"Mineral, NV"
+Mammoth Lakes,CA,"Mammoth Lakes, CA"
+San Diego,CA,"San Diego, CA"
+Yuma,CA,"Yuma, CA"
+Santa Barbara,CA,"Santa Barbara, CA"
+Los Angeles,CA,"Los Angeles, CA"
+Lewiston,ID,"Lewiston, ID"
+Pullman,WA,"Pullman, WA"
+Moses Lake,WA,"Moses Lake, WA"
+Wenatchee,WA,"Wenatchee, WA"
+Spokane,WA,"Spokane, WA"
+Colville,WA,"Colville, WA"
+Longview,WA,"Longview, WA"
+Portland,OR,"Portland, OR"
+The Dalles,OR,"The Dalles, OR"
+Eugene,OR,"Eugene, OR"
+Newport,OR,"Newport, OR"
+Yakima,WA,"Yakima, WA"
+Kennewick,WA,"Kennewick, WA"
+La Grande,OR,"La Grande, OR"
+Enterprise,OR,"Enterprise, OR"
+Bend,OR,"Bend, OR"
+Condon,OR,"Condon, OR"
+John Day,OR,"John Day, OR"
+Friday Harbor,WA,"Friday Harbor, WA"
+Bellingham,WA,"Bellingham, WA"
+Port Angeles,WA,"Port Angeles, WA"
+Seattle,WA,"Seattle, WA"
